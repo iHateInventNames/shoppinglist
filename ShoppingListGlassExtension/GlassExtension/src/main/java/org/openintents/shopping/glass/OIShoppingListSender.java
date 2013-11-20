@@ -1,6 +1,8 @@
 package org.openintents.shopping.glass;
 
 import android.app.Activity;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.database.ContentObserver;
 import android.database.Cursor;
 import android.util.Log;
@@ -20,6 +22,22 @@ public class OIShoppingListSender {
     private long mShoppingListId;
     private String mShoppingListName;
     private Cursor mExistingItems;
+
+    public OIShoppingListSender(Activity activity) {
+        this.context = activity;
+
+        try {
+            PackageInfo info = context.getPackageManager().getPackageInfo("org.openintents.shopping", 0);
+            if (info.versionCode < 10024) {
+                mInvalideShoppingVersion = true;
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            mInvalideShoppingVersion = true;
+        }
+
+        initShoppingLists(false);
+
+    }
 
     private void initShoppingLists(boolean setDefault) {
 
@@ -109,7 +127,7 @@ public class OIShoppingListSender {
 
     }
 
-    private Item getItem(int pos) {
+    public Item getItem(int pos) {
 
         Item result = null;
         if (mExistingItems != null) {
@@ -130,7 +148,7 @@ public class OIShoppingListSender {
         return result;
     }
 
-    private class Item {
+    public static class Item {
 
         private Item(String id, String item, String tags, int quantity,
                      int bought) {

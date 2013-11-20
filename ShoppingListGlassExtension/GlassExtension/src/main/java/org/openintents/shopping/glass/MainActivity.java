@@ -3,8 +3,6 @@ package org.openintents.shopping.glass;
 import android.accounts.AccountManager;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -56,19 +54,11 @@ public class MainActivity extends Activity {
     private ImageButton mNewCardButton;
     private EditText mNewCardEditText;
     private boolean mInvalideShoppingVersion;
+    private OIShoppingListSender shoppingListSender;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        try {
-            PackageInfo info = getPackageManager().getPackageInfo("org.openintents.shopping", 0);
-            if (info.versionCode < 10024) {
-                mInvalideShoppingVersion = true;
-            }
-        } catch (PackageManager.NameNotFoundException e) {
-            mInvalideShoppingVersion = true;
-        }
 
 
         // Define our layout
@@ -113,10 +103,16 @@ public class MainActivity extends Activity {
             }
         });
 
+        shoppingListSender  = new OIShoppingListSender(this);
+
+        OIShoppingListSender.Item item = shoppingListSender.getItem(0);
+        mNewCardEditText.setText(item.item);
+
         mNewCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createNewTimelineItem(mNewCardEditText.getText().toString());
+
+            createNewTimelineItem(mNewCardEditText.getText().toString());
             }
         });
 

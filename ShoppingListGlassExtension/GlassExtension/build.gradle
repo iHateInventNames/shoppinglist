@@ -22,13 +22,15 @@ configurations {
 
 dependencies {
     compile project(':Libraries:GooglePlayServices')
-    compile files('libs/android-support-v4.jar')
 
     // Require the Google APIs Client Library
     compile 'com.google.api-client:google-api-client:1.15.0-rc'
     compile 'com.google.api-client:google-api-client-android:1.15.0-rc'
     compile 'com.google.apis:google-api-services-mirror:v1-rev11-1.15.0-rc'
 }
+
+Properties props = new Properties()
+props.load(new FileInputStream(file(project.property("DEPLOY.properties"))))
 
 
 android {

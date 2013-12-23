@@ -24,9 +24,11 @@ dependencies {
     compile project(':Libraries:GooglePlayServices')
 
     // Require the Google APIs Client Library
-    compile 'com.google.api-client:google-api-client:1.15.0-rc'
-    compile 'com.google.api-client:google-api-client-android:1.15.0-rc'
-    compile 'com.google.apis:google-api-services-mirror:v1-rev11-1.15.0-rc'
+    compile 'com.google.api-client:google-api-client:1.17.0-rc'
+    compile 'com.google.api-client:google-api-client-android:1.17.0-rc'
+    compile 'com.google.apis:google-api-services-mirror:v1-rev26-1.17.0-rc'
+    compile (group: 'com.google.http-client', name: 'google-http-client-jackson2', version: '1.17.0-rc')
+    compile (group: 'com.google.guava', name: 'guava', version: '15.0')
 }
 
 Properties props = new Properties()

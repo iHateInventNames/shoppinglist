@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
@@ -18,8 +19,14 @@ import com.google.android.gms.auth.GoogleAuthException;
 import com.google.android.gms.auth.GoogleAuthUtil;
 import com.google.android.gms.auth.UserRecoverableAuthException;
 import com.google.android.gms.common.AccountPicker;
+import com.google.api.client.json.jackson2.JacksonFactory;
+import com.google.api.services.mirror.model.MenuItem;
+import com.google.api.services.mirror.model.NotificationConfig;
+import com.google.api.services.mirror.model.TimelineItem;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -55,6 +62,7 @@ public class MainActivity extends Activity {
     private EditText mNewCardEditText;
     private boolean mInvalideShoppingVersion;
     private OIShoppingListSender shoppingListSender;
+    private ArrayList<String> sentItems = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,17 +113,33 @@ public class MainActivity extends Activity {
 
         shoppingListSender  = new OIShoppingListSender(this);
 
-        OIShoppingListSender.Item item = shoppingListSender.getItem(0);
-        mNewCardEditText.setText(item.item);
+        mNewCardEditText.setText(shoppingListSender.getShoppingListName());
 
         mNewCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                sentItems.clear();
+                addItems();
 
-            createNewTimelineItem(mNewCardEditText.getText().toString());
             }
         });
 
+    }
+
+    private void addItems() {
+
+        String shoppingListName = mNewCardEditText.getText().toString();
+        for (int i = 0; i< shoppingListSender.getCount();i++){
+            OIShoppingListSender.Item item = shoppingListSender.getItem(i);
+            TimelineItem timelineItem = new TimelineItem();
+            NotificationConfig notification = new NotificationConfig();
+            notification.setLevel("DEFAULT");
+            timelineItem.setNotification(notification);
+            timelineItem.setBundleId(shoppingListName);
+            timelineItem.setText(item.item);
+
+            createNewTimelineItem(timelineItem);
+        }
     }
 
     @Override
@@ -161,25 +185,30 @@ public class MainActivity extends Activity {
         }
     }
 
-    private void createNewTimelineItem(String message) {
+    private void createNewTimelineItem(TimelineItem message) {
+
         if (!TextUtils.isEmpty(mAuthToken)) {
-            if (!TextUtils.isEmpty(message)) {
+            if (message != null) {
+                message.setFactory(new JacksonFactory());
                 try {
-                    JSONObject notification = new JSONObject();
-                    notification.put("level", "DEFAULT"); // Play a chime
-
-                    JSONObject json = new JSONObject();
-                    json.put("text", message);
-                    json.put("notification", notification);
-
                     MirrorApiClient client = MirrorApiClient.getInstance(this);
-                    client.createTimelineItem(mAuthToken, json, new MirrorApiClient.Callback() {
+                    client.createTimelineItem(mAuthToken, message.toPrettyString(), new MirrorApiClient.Callback() {
                         @Override
                         public void onSuccess(HttpResponse response) {
                             try {
-                                Log.v(TAG, "onSuccess: " + EntityUtils.toString(response.getEntity()));
+                                String jsonString = EntityUtils.toString(response.getEntity());
+                                Log.v(TAG, "onSuccess: " + jsonString);
+
+                                JSONObject timelineItem = new JSONObject(jsonString);
+                                String id = timelineItem.getString("id");
+                                sentItems.add(id);
+                                if (sentItems.size() == shoppingListSender.getCount()){
+                                    sendListCard();
+                                }
                             } catch (IOException e1) {
                                 // Pass
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
                             Toast.makeText(MainActivity.this, "Created new timeline item",
                                     Toast.LENGTH_SHORT).show();
@@ -196,10 +225,10 @@ public class MainActivity extends Activity {
                                     Toast.LENGTH_SHORT).show();
                         }
                     });
-                } catch (JSONException e) {
-                    Toast.makeText(this, "Sorry, can't serialize that to JSON",
-                            Toast.LENGTH_SHORT).show();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
+
             } else {
                 Toast.makeText(this, "Sorry, can't create an empty timeline item",
                         Toast.LENGTH_SHORT).show();
@@ -208,6 +237,22 @@ public class MainActivity extends Activity {
             Toast.makeText(this, "Sorry, can't create a new timeline card without a token",
                     Toast.LENGTH_LONG).show();
         }
+    }
+
+    private void sendListCard() {
+        String shoppingListName = mNewCardEditText.getText().toString();
+
+
+        TimelineItem timelineItem = new TimelineItem();
+        timelineItem.setText(shoppingListSender.getShoppingListName());
+        List<MenuItem> menuItems = new ArrayList<MenuItem>();
+        MenuItem menuItem = new MenuItem();
+        menuItem.setAction("OPEN_URI");
+        menuItem.setPayload("shoppingitem://item/" + Html.escapeHtml(shoppingListName) + "?ids=" + TextUtils.join(",", sentItems));
+        menuItems.add(menuItem);
+        timelineItem.setMenuItems(menuItems);
+        timelineItem.setBundleId(shoppingListName);
+        createNewTimelineItem(timelineItem);
     }
 
     private void onTokenResult(String token) {

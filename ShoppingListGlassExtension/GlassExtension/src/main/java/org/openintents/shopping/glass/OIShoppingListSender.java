@@ -23,6 +23,7 @@ public class OIShoppingListSender {
     private String mShoppingListName;
     private Cursor mExistingItems;
 
+
     public OIShoppingListSender(Activity activity) {
         this.context = activity;
 
@@ -69,15 +70,17 @@ public class OIShoppingListSender {
 
         setCurrentShoppingListId(mShoppingListPos);
 
-        //context.refreshCursor();
+        refreshCursor();
 
+        /*
         context.getContentResolver().registerContentObserver(Shopping.Contains.CONTENT_URI,
-                true, mContentObserver);
+
+                true, mContentObserver) ;
         context.getContentResolver().registerContentObserver(Shopping.ContainsFull.CONTENT_URI,
                 true, mContentObserver);
         context.getContentResolver().registerContentObserver(
                 Shopping.Items.CONTENT_URI, true, mContentObserver);
-
+        */
         mPos = 0;
 
     }
@@ -146,6 +149,14 @@ public class OIShoppingListSender {
             }
         }
         return result;
+    }
+
+    public String getShoppingListName() {
+        return mShoppingListName;
+    }
+
+    public int getCount() {
+        return mExistingItems.getCount();
     }
 
     public static class Item {

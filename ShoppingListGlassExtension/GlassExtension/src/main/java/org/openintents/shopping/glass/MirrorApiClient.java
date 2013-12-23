@@ -2,6 +2,7 @@ package org.openintents.shopping.glass;
 
 import android.content.Context;
 import android.os.Handler;
+import android.util.Log;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -16,12 +17,12 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.HttpConnectionParams;
-import org.json.JSONObject;
 
-public class MirrorApiClient {
+public class MirrorApiClient  {
     private static final String BASE_URL = "https://www.googleapis.com/mirror/v1/";
     private static final int CONNECT_TIMEOUT = 2500;
     private static final int REQUEST_TIMEOUT = 5000;
+    private static final String TAG = "MirrorApiClient";
     private static MirrorApiClient sInstance;
     private Handler mHandler;
     private ExecutorService mThreadPool;
@@ -48,20 +49,28 @@ public class MirrorApiClient {
         return sInstance;
     }
 
-    public void createTimelineItem(String token, JSONObject json,
+    public void createTimelineItem(String token, String json,
             final Callback callback) {
         try {
             final HttpPost request = new HttpPost();
             request.setURI(new URI(BASE_URL + "timeline"));
             request.addHeader("Content-Type", "application/json");
             request.addHeader("Authorization", String.format("Bearer %s", token));
-            request.setEntity(new StringEntity(json.toString()));
+            String jsonstring = json.toString();
+            Log.d(TAG, jsonstring);
+            request.setEntity(new StringEntity(jsonstring));
 
             // Execute the request on a background thread
             mThreadPool.execute(new Runnable() {
                 @Override
                 public void run() {
                     try {
+                        mClient = new DefaultHttpClient();
+                        HttpConnectionParams.setConnectionTimeout(
+                                mClient.getParams(), CONNECT_TIMEOUT);
+                        HttpConnectionParams.setSoTimeout(
+                                mClient.getParams(), REQUEST_TIMEOUT);
+
                         final HttpResponse response = mClient.execute(request);
                         if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
                             mHandler.post(new Runnable() {

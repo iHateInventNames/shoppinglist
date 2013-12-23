@@ -2,11 +2,13 @@ package org.openintents.shopping.glassware;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.glass.app.Card;
+import com.google.android.glass.timeline.TimelineManager;
 import com.google.android.glass.widget.CardScrollAdapter;
 import com.google.android.glass.widget.CardScrollView;
 
@@ -19,24 +21,33 @@ public class ShoppingListCardScroll extends Activity {
     private CardScrollView mCardScrollView;
     private ShoppingListCardScrollAdapter adapter;
 
+    private TimelineManager timelineManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         createTitleCard();
-
         initCardsUI();
+        initTimelineManager();
 
         setContentView(mCardScrollView);
 
+        initListFromIntent();
+
+    }
+
+    private void initListFromIntent() {
         Intent intent = getIntent();
         String action = intent.getAction();
 
         if (Intent.ACTION_VIEW.equals(action)) {
-            createCards(intent.getData().getPath());
-
+            createCards(intent.getData());
         }
+    }
 
+    private void initTimelineManager() {
+        timelineManager = TimelineManager.from(this);
     }
 
     private void createTitleCard() {
@@ -55,7 +66,22 @@ public class ShoppingListCardScroll extends Activity {
         mCardScrollView.activate();
     }
 
-    private void createCards(String data) {
+    private void createCards(Uri data) {
+
+        //shoppinglistname?ids=           Html.escapeHtml(shoppingListName) + "?ids=" + TextUtils.join(",", sentItems)
+
+        String idString = data.getQueryParameter("ids");
+
+        String[] ids = idString.split(",");
+
+        for (int i = 0; i < ids.length; i++){
+            Card card = timelineManager.query(Long.valueOf(ids[i]));
+
+        }
+
+
+
+
         Card card = new Card(this);
         card.setText(data.toString());
         mCards.add(card);

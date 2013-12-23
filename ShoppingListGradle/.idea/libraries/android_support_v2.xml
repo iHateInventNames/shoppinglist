@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="android-support-v2">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/oIShoppingList/libs/android-support-v2.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

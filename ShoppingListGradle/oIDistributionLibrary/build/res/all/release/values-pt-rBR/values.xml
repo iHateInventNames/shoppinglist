@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pt-rBR/strings.xml -->
+    <eat-comment />
+
+    <string name="about_translators">Launchpad Contributions:
+  Janeth Vargas https://launchpad.net/~janeth-vz-1
+  OpenIntents devs https://launchpad.net/~openintents-devs</string>
+    <string name="oi_distribution_about">Sobre</string>
+    <string name="oi_distribution_aboutapp">OI Sobre</string>
+    <string name="oi_distribution_aboutapp_get">Conseguir OI Sobre</string>
+    <string name="oi_distribution_aboutapp_not_available">Sem extensão compatível disponível para exibir informação completa (contato, créditos, de licença).</string>
+    <string name="oi_distribution_app_name">OI Livraria de Distribuição</string>
+    <string name="oi_distribution_barcodescanner">OI Plugin de Código de Barras</string>
+    <string name="oi_distribution_barcodescanner_not_available">Não há um scanner de código de barras compatível disponível.</string>
+    <string name="oi_distribution_download_market">Download  do Mercado</string>
+    <string name="oi_distribution_download_market_message">Por favor faça o download %s do Mercado no site OpenIntents.</string>
+    <string name="oi_distribution_download_message">Por favor faça o download %s do site da OpenIntents.</string>
+    <string name="oi_distribution_download_title">Download %s</string>
+    <string name="oi_distribution_download_web">Download da Internete</string>
+    <string name="oi_distribution_eula_accept">Aceitar</string>
+    <string name="oi_distribution_eula_message">Por favor, leia e aceite este Contrato de Licença de Usuário Final (CLUF) para %s.</string>
+    <string name="oi_distribution_eula_refuse">Cancelar</string>
+    <string name="oi_distribution_eula_title">%s CLUF</string>
+    <string name="oi_distribution_filemanager">OI Gerenciador de Arquivos</string>
+    <string name="oi_distribution_filemanager_not_available">Sem  gerenciador de arquivos compatíveis disponível.</string>
+    <string name="oi_distribution_info_activity_text">%s pode ser usado com as seguintes aplicações:</string>
+    <string name="oi_distribution_info_instructions">Instruções</string>
+    <string name="oi_distribution_info_launch">Iniciar %s</string>
+    <string name="oi_distribution_info_not_available">%1$s requere %2$s %3$s ou superior.</string>
+    <string name="oi_distribution_launch_error">Aplicação não pôde ser iniciada</string>
+    <string name="oi_distribution_menu_update">Checar atualizações</string>
+    <string name="oi_distribution_name_and_version">%1$s %2$s</string>
+    <string name="oi_distribution_newversion_continue">Continuar</string>
+    <string name="oi_distribution_newversion_message">Bem-vindo a esta nova versão do %s.</string>
+    <string name="oi_distribution_newversion_recent_changes">Modificações Recentes:</string>
+    <string name="oi_distribution_safe">OI Seguro</string>
+    <string name="oi_distribution_safe_not_available">Nenhuma aplicação compatível para a criptografia disponível.</string>
+    <string name="oi_distribution_safe_not_available_decrypt">Nenhuma aplicação compatível para a descodificação está disponível.\n\nNota: Você tem que restaurar a chave master de um arquivo de backup, a fim de acessar dados criptografados anteriormente.</string>
+    <string name="oi_distribution_update_app">OI Atualizar</string>
+    <string name="oi_distribution_update_box_text">Verificar manualmente por atualizações ou instalar OI Atualização para notificações automáticas.</string>
+    <string name="oi_distribution_update_check_now">Confira agora</string>
+    <string name="oi_distribution_update_error">Download aplicativo não está disponível.</string>
+    <string name="oi_distribution_update_get_updater">Conseguir OI Atualização</string>
+
+</resources>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="OIShoppingListMyBackupPro">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/oIShoppingList/libs/OIShoppingListMyBackupPro.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

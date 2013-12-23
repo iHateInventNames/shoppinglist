@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pl/strings.xml -->
+    <eat-comment />
+
+    <string name="about_translators">Launchpad Contributions:
+  OpenIntents devs https://launchpad.net/~openintents-devs
+  Piotr Łazarczyk https://launchpad.net/~quazarxd
+  Tomasz Zieliński https://launchpad.net/~tomek0517</string>
+    <string name="oi_distribution_about">O programie</string>
+    <string name="oi_distribution_aboutapp">OI About</string>
+    <string name="oi_distribution_aboutapp_get">Pobierz OI About</string>
+    <string name="oi_distribution_aboutapp_not_available">Rozszerzenie nie kompatybilne z pozwalającym wyświetlić wszystkie informacje (kontakty, podziękowania, licencja).</string>
+    <string name="oi_distribution_app_name">OI Biblioteka dystrybucji</string>
+    <string name="oi_distribution_barcodescanner">Barcode OI Plugin</string>
+    <string name="oi_distribution_barcodescanner_not_available">Nie ma kompatybilnego skanera kodów kreskowych.</string>
+    <string name="oi_distribution_download_market">Pobieranie z Marketu</string>
+    <string name="oi_distribution_download_market_message">Proszę pobrać %s z Marketu lub ze strony OpenIntents.</string>
+    <string name="oi_distribution_download_message">Proszę pobrać %s ze strony OpenIntents.</string>
+    <string name="oi_distribution_download_title">Pobierz %s</string>
+    <string name="oi_distribution_download_web">Pobieranie ze strony</string>
+    <string name="oi_distribution_eula_accept">Akceptuj</string>
+    <string name="oi_distribution_eula_message">Proszę przeczytać i zaakceptować poniższą Umowę licencyjną %s.</string>
+    <string name="oi_distribution_eula_refuse">Anuluj</string>
+    <string name="oi_distribution_eula_title">Umowa licencyjna %s</string>
+    <string name="oi_distribution_filemanager">OI Menedżer plików</string>
+    <string name="oi_distribution_filemanager_not_available">Nie znaleziono zgodnego menedżera plików.</string>
+    <string name="oi_distribution_info_activity_text">%s może być używany z następującymi aplikacjami:</string>
+    <string name="oi_distribution_info_instructions">Instrukcje</string>
+    <string name="oi_distribution_info_launch">Uruchom %s</string>
+    <string name="oi_distribution_info_not_available">%1$s wymaga %2$s w wersji %3$s lub wyższej.</string>
+    <string name="oi_distribution_launch_error">Nie można uruchomić aplikacji</string>
+    <string name="oi_distribution_menu_update">Szukaj aktualizacji</string>
+    <string name="oi_distribution_name_and_version">%1$s %2$s</string>
+    <string name="oi_distribution_newversion_continue">Kontynuuj</string>
+    <string name="oi_distribution_newversion_message">Witamy w nowej wersji %s.</string>
+    <string name="oi_distribution_newversion_recent_changes">Ostatnie zmiany:</string>
+    <string name="oi_distribution_safe">OI Sejf</string>
+    <string name="oi_distribution_safe_not_available">Nie znaleziono kompatybilnej aplikacji do szyfrowania.</string>
+    <string name="oi_distribution_safe_not_available_decrypt">Nie znaleziono kompatybilnej aplikacji do szyfrowania.\n\nUwaga: Aby uzyskać dostęp do zaszyfrowanych danych, należy odzyskać klucz główny z kopii zapasowej pliku.</string>
+    <string name="oi_distribution_update_app">OI Update</string>
+    <string name="oi_distribution_update_box_text">Wyszukaj ręcznie aktualizacji lub zainstaluj OI Update dla automatycznych powiadomień.</string>
+    <string name="oi_distribution_update_check_now">Sprawdź teraz</string>
+    <string name="oi_distribution_update_error">Nie można pobrać aplikacji.</string>
+    <string name="oi_distribution_update_get_updater">Pobierz OI Updater</string>
+
+</resources>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ro/strings.xml -->
+    <eat-comment />
+
+    <string name="about_translators">Launchpad Contributions:
+  Florentina Mușat https://launchpad.net/~kuchiki14
+  OpenIntents devs https://launchpad.net/~openintents-devs
+  Toader Stefana Teodora https://launchpad.net/~toaderstefana
+  Vasilache Eusebiu https://launchpad.net/~seby-sebi94</string>
+    <string name="oi_distribution_about">Despre</string>
+    <string name="oi_distribution_aboutapp">Despre OI</string>
+    <string name="oi_distribution_aboutapp_get">Obține Despre OI</string>
+    <string name="oi_distribution_aboutapp_not_available">Nu este disponibilă nicio extensie compatibilă pentru a afișa informațiile complete (contact, autori, licență).</string>
+    <string name="oi_distribution_app_name">Bibliotecă de distribuție OI</string>
+    <string name="oi_distribution_barcodescanner">Modul Cod de bare OI</string>
+    <string name="oi_distribution_barcodescanner_not_available">Nu există un scanner pentru cod de bare disponibil.</string>
+    <string name="oi_distribution_download_market">Descărcare Market</string>
+    <string name="oi_distribution_download_market_message">Descărcați %s de la Market sau de pe pagina principală OpenIntents.</string>
+    <string name="oi_distribution_download_message">Descărcați %s de la pagina principală OpenIntents.</string>
+    <string name="oi_distribution_download_title">Descarcă %s</string>
+    <string name="oi_distribution_download_web">Descărcare web</string>
+    <string name="oi_distribution_eula_accept">Acceptă</string>
+    <string name="oi_distribution_eula_message">Citiți și acceptați următorul Acord de Licențiere pentru Utilizatorul Final (EULA) pentru %s.</string>
+    <string name="oi_distribution_eula_refuse">Anulează</string>
+    <string name="oi_distribution_eula_title">%s EULA</string>
+    <string name="oi_distribution_filemanager">Gestionar de fișiere OI</string>
+    <string name="oi_distribution_filemanager_not_available">Nu este disponibil niciun gestionar de fișiere compatibil.</string>
+    <string name="oi_distribution_info_activity_text">%s poate fi utilizat cu următoarele aplicații:</string>
+    <string name="oi_distribution_info_instructions">Instrucțiuni</string>
+    <string name="oi_distribution_info_launch">Pornește %s</string>
+    <string name="oi_distribution_info_not_available">%1$s necesită %2$s %3$s sau mai mult.</string>
+    <string name="oi_distribution_launch_error">Nu s-a putut porni aplicație</string>
+    <string name="oi_distribution_menu_update">Verifică actualizările</string>
+    <string name="oi_distribution_name_and_version">%1$s %2$s</string>
+    <string name="oi_distribution_newversion_continue">Continuați</string>
+    <string name="oi_distribution_newversion_message">Bine ați venit la această nouă versiune a %s.</string>
+    <string name="oi_distribution_newversion_recent_changes">Modificări recente:</string>
+    <string name="oi_distribution_safe">OI Safe</string>
+    <string name="oi_distribution_safe_not_available">Nu este disponibilă nicio aplicație compatibilă pentru criptare.</string>
+    <string name="oi_distribution_safe_not_available_decrypt">Nu este disponibilă nicio aplicație compatibilă pentru decriptare.\n\nNotă: Trebuie să restaurați cheia principală dintr-un fișier copie de rezervă pentru a accesa datele criptate anterior.</string>
+    <string name="oi_distribution_update_app">Actualizare OI</string>
+    <string name="oi_distribution_update_box_text">Verificați manual pentru actualizări sau instalați Actualizare OI pentru înștiințări automate.</string>
+    <string name="oi_distribution_update_check_now">Verifică acum</string>
+    <string name="oi_distribution_update_error">Aplicația pentru descărcare nu este disponibilă.</string>
+    <string name="oi_distribution_update_get_updater">Obține Actualizare OI</string>
+
+</resources>

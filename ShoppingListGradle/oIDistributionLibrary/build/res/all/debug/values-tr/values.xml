@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-tr/strings.xml -->
+    <eat-comment />
+
+    <string name="about_translators">Launchpad Contributions:
+  OpenIntents devs https://launchpad.net/~openintents-devs
+  ariza95 https://launchpad.net/~alirizanazli95
+  zeugma https://launchpad.net/~sunder67</string>
+    <string name="oi_distribution_about">Hakkında</string>
+    <string name="oi_distribution_aboutapp">OI Hakkında</string>
+    <string name="oi_distribution_aboutapp_get">OI Hakkında al</string>
+    <string name="oi_distribution_aboutapp_not_available">Bütün bilgileri gösterebiilmek için uygun bir uzantı bulunmamaktadır.(iletişim,kredi,lisans)</string>
+    <string name="oi_distribution_app_name">OI Dağıtım Kütüphanesi</string>
+    <string name="oi_distribution_barcodescanner">Barcode OI Plugin</string>
+    <string name="oi_distribution_barcodescanner_not_available">No compatible barcode scanner is available.</string>
+    <string name="oi_distribution_download_market">Market İndirmeleri.</string>
+    <string name="oi_distribution_download_market_message">Lütfen %s Marketten veya OpenIntents internet sitesinden indirin.</string>
+    <string name="oi_distribution_download_message">Lütfen %s OpenIntents internet sitesinden indirin.</string>
+    <string name="oi_distribution_download_title">%s indir</string>
+    <string name="oi_distribution_download_web">İnternet indirmeleri</string>
+    <string name="oi_distribution_eula_accept">Kabul et</string>
+    <string name="oi_distribution_eula_message">%s için Lütfen Aşağıdaki Kullanıcı Lisans Sözleşmesini(EULA) okuyun ve kabul edin.</string>
+    <string name="oi_distribution_eula_refuse">İptal</string>
+    <string name="oi_distribution_eula_title">%s EULA (Kullanıcı lisans sözleşmesi)</string>
+    <string name="oi_distribution_filemanager">OI Dosya Yöneticisi</string>
+    <string name="oi_distribution_filemanager_not_available">Uyumlu dosya yöneticisi bulunamadı.</string>
+    <string name="oi_distribution_info_activity_text">%s aşağıdaki uygulamalarla kullanılabilir.</string>
+    <string name="oi_distribution_info_instructions">Talimatlar</string>
+    <string name="oi_distribution_info_launch">%s başlat</string>
+    <string name="oi_distribution_info_not_available">%1$s,%2$s %3$s yada daha yüksek bir sürümü gerektiriyor.</string>
+    <string name="oi_distribution_launch_error">Uygulama başlatılamadı.</string>
+    <string name="oi_distribution_menu_update">Güncelleme kontrolü</string>
+    <string name="oi_distribution_name_and_version">%1$s %2$s</string>
+    <string name="oi_distribution_newversion_continue">Devam</string>
+    <string name="oi_distribution_newversion_message">%s yeni sürümüne hoş geldiniz.</string>
+    <string name="oi_distribution_newversion_recent_changes">Son değişiklikler:</string>
+    <string name="oi_distribution_safe">OI Kasa</string>
+    <string name="oi_distribution_safe_not_available">Şifreleme için uyumlu uygulama yok.</string>
+    <string name="oi_distribution_safe_not_available_decrypt">Şifre çözmek için uyumlu uygulama yok.Not: Şifrelenmiş veriye erişebilmek için Yedeklenmiş dosyadan ana anahtarı geri yüklemek zorundasınız.</string>
+    <string name="oi_distribution_update_app">OI Güncelleme</string>
+    <string name="oi_distribution_update_box_text">Güncelleştirmeleri  el ile kontrol edin yada Otomatik uyarı için OIGüncellemeyi yükleyin.</string>
+    <string name="oi_distribution_update_check_now">Şimdi kontrol et</string>
+    <string name="oi_distribution_update_error">İndirilebilir uygulama mevcut değil.</string>
+    <string name="oi_distribution_update_get_updater">OI Güncelleyici al</string>
+
+</resources>

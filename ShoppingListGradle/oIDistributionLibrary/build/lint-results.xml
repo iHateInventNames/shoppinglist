@@ -1,0 +1,2966 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="4" by="lint 22.3">
+
+    <issue
+        id="OldTargetApi"
+        severity="Warning"
+        message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details."
+        category="Correctness"
+        priority="6"
+        summary="Checks that the manifest specifies a targetSdkVersion that is recent"
+        explanation="When your application runs on a version of Android that is more recent than your `targetSdkVersion` specifies that it has been tested with, various compatibility modes kick in. This ensures that your application continues to work, but it may look out of place. For example, if the `targetSdkVersion` is less than 14, your app may get an option button in the UI.
+
+To fix this issue, set the `targetSdkVersion` to the highest available value. Then test your app to make sure everything works correctly. You may want to consult the compatibility notes to see what changes apply to each version you are adding support for: http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
+        url="http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
+        urls="http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
+        errorLine1="    &lt;uses-sdk android:minSdkVersion=&quot;4&quot; android:targetSdkVersion=&quot;15&quot;/>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/AndroidManifest.xml"
+            line="11"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="OldTargetApi"
+        severity="Warning"
+        message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details."
+        category="Correctness"
+        priority="6"
+        summary="Checks that the manifest specifies a targetSdkVersion that is recent"
+        explanation="When your application runs on a version of Android that is more recent than your `targetSdkVersion` specifies that it has been tested with, various compatibility modes kick in. This ensures that your application continues to work, but it may look out of place. For example, if the `targetSdkVersion` is less than 14, your app may get an option button in the UI.
+
+To fix this issue, set the `targetSdkVersion` to the highest available value. Then test your app to make sure everything works correctly. You may want to consult the compatibility notes to see what changes apply to each version you are adding support for: http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
+        url="http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
+        urls="http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
+        errorLine1="    &lt;uses-sdk android:minSdkVersion=&quot;4&quot; android:targetSdkVersion=&quot;15&quot;/>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/AndroidManifest.xml"
+            line="11"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="Suspicious0dp"
+        severity="Error"
+        message="Suspicious size: this will make the view invisible, should be used with layout_weight"
+        category="Correctness"
+        priority="6"
+        summary="Looks for 0dp as the width in a vertical LinearLayout or as the height in a horizontal"
+        explanation="Using 0dp as the width in a horizontal LinearLayout with weights is a useful trick to ensure that only the weights (and not the intrinsic sizes) are used when sizing the children.
+
+However, if you use 0dp for the opposite dimension, the view will be invisible. This can happen if you change the orientation of a layout without also flipping the 0dp dimension in all the children."
+        errorLine1="        android:layout_width=&quot;0dip&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/layout/oi_distribution_buttonbar.xml"
+            line="18"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="Suspicious0dp"
+        severity="Error"
+        message="Suspicious size: this will make the view invisible, should be used with layout_weight"
+        category="Correctness"
+        priority="6"
+        summary="Looks for 0dp as the width in a vertical LinearLayout or as the height in a horizontal"
+        explanation="Using 0dp as the width in a horizontal LinearLayout with weights is a useful trick to ensure that only the weights (and not the intrinsic sizes) are used when sizing the children.
+
+However, if you use 0dp for the opposite dimension, the view will be invisible. This can happen if you change the orientation of a layout without also flipping the 0dp dimension in all the children."
+        errorLine1="        android:layout_width=&quot;0dip&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/layout/oi_distribution_buttonbar.xml"
+            line="18"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="Suspicious0dp"
+        severity="Error"
+        message="Suspicious size: this will make the view invisible, should be used with layout_weight"
+        category="Correctness"
+        priority="6"
+        summary="Looks for 0dp as the width in a vertical LinearLayout or as the height in a horizontal"
+        explanation="Using 0dp as the width in a horizontal LinearLayout with weights is a useful trick to ensure that only the weights (and not the intrinsic sizes) are used when sizing the children.
+
+However, if you use 0dp for the opposite dimension, the view will be invisible. This can happen if you change the orientation of a layout without also flipping the 0dp dimension in all the children."
+        errorLine1="        android:layout_width=&quot;0dip&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/layout-v14/oi_distribution_buttonbar.xml"
+            line="19"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="Suspicious0dp"
+        severity="Error"
+        message="Suspicious size: this will make the view invisible, should be used with layout_weight"
+        category="Correctness"
+        priority="6"
+        summary="Looks for 0dp as the width in a vertical LinearLayout or as the height in a horizontal"
+        explanation="Using 0dp as the width in a horizontal LinearLayout with weights is a useful trick to ensure that only the weights (and not the intrinsic sizes) are used when sizing the children.
+
+However, if you use 0dp for the opposite dimension, the view will be invisible. This can happen if you change the orientation of a layout without also flipping the 0dp dimension in all the children."
+        errorLine1="        android:layout_width=&quot;0dip&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/layout-v14/oi_distribution_buttonbar.xml"
+            line="19"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="StringFormatInvalid"
+        severity="Error"
+        message="Format string &apos;oi_distribution_download_title&apos; is not a valid format string so it should not be passed to String.format"
+        category="Correctness:Messages"
+        priority="9"
+        summary="Checks that format strings are valid"
+        explanation="If a string contains a &apos;%&apos; character, then the string may be a formatting string which will be passed to `String.format` from Java code to replace each &apos;%&apos; occurrence with specific values.
+
+This lint warning checks for two related problems:
+(1) Formatting strings that are invalid, meaning that `String.format` will throw exceptions at runtime when attempting to use the format string.
+(2) Strings containing &apos;%&apos; that are not formatting strings getting passed to a `String.format` call. In this case the &apos;%&apos; will need to be escaped as &apos;%%&apos;.
+
+NOTE: Not all Strings which look like formatting strings are intended for use by `String.format`; for example, they may contain date formats intended for `android.text.format.Time#format()`. Lint cannot always figure out that a String is a date format, so you may get false warnings in those scenarios. See the suppress help topic for information on how to suppress errors in that case."
+        errorLine1="    &lt;string name=&quot;oi_distribution_download_title&quot;>دانلود s%&lt;/string>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-fa/strings.xml"
+            line="97"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="StringFormatInvalid"
+        severity="Error"
+        message="Format string &apos;oi_distribution_download_title&apos; is not a valid format string so it should not be passed to String.format"
+        category="Correctness:Messages"
+        priority="9"
+        summary="Checks that format strings are valid"
+        explanation="If a string contains a &apos;%&apos; character, then the string may be a formatting string which will be passed to `String.format` from Java code to replace each &apos;%&apos; occurrence with specific values.
+
+This lint warning checks for two related problems:
+(1) Formatting strings that are invalid, meaning that `String.format` will throw exceptions at runtime when attempting to use the format string.
+(2) Strings containing &apos;%&apos; that are not formatting strings getting passed to a `String.format` call. In this case the &apos;%&apos; will need to be escaped as &apos;%%&apos;.
+
+NOTE: Not all Strings which look like formatting strings are intended for use by `String.format`; for example, they may contain date formats intended for `android.text.format.Time#format()`. Lint cannot always figure out that a String is a date format, so you may get false warnings in those scenarios. See the suppress help topic for information on how to suppress errors in that case."
+        errorLine1="    &lt;string name=&quot;oi_distribution_download_title&quot;>دانلود s%&lt;/string>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-fa/strings.xml"
+            line="97"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="StringFormatInvalid"
+        severity="Error"
+        message="Incorrect formatting string oi_distribution_info_activity_text; missing conversion character in &apos;% s&apos; ?"
+        category="Correctness:Messages"
+        priority="9"
+        summary="Checks that format strings are valid"
+        explanation="If a string contains a &apos;%&apos; character, then the string may be a formatting string which will be passed to `String.format` from Java code to replace each &apos;%&apos; occurrence with specific values.
+
+This lint warning checks for two related problems:
+(1) Formatting strings that are invalid, meaning that `String.format` will throw exceptions at runtime when attempting to use the format string.
+(2) Strings containing &apos;%&apos; that are not formatting strings getting passed to a `String.format` call. In this case the &apos;%&apos; will need to be escaped as &apos;%%&apos;.
+
+NOTE: Not all Strings which look like formatting strings are intended for use by `String.format`; for example, they may contain date formats intended for `android.text.format.Time#format()`. Lint cannot always figure out that a String is a date format, so you may get false warnings in those scenarios. See the suppress help topic for information on how to suppress errors in that case."
+        errorLine1=" &lt;string name=&quot;oi_distribution_info_activity_text&quot;>% s निम्नलिखित अनुप्रयोगों के साथ इस्तेमाल किया जा सकता है:&lt;/string>"
+        errorLine2=" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-hi/strings.xml"
+            line="101"
+            column="2"/>
+    </issue>
+
+    <issue
+        id="StringFormatInvalid"
+        severity="Error"
+        message="Incorrect formatting string oi_distribution_info_activity_text; missing conversion character in &apos;% s&apos; ?"
+        category="Correctness:Messages"
+        priority="9"
+        summary="Checks that format strings are valid"
+        explanation="If a string contains a &apos;%&apos; character, then the string may be a formatting string which will be passed to `String.format` from Java code to replace each &apos;%&apos; occurrence with specific values.
+
+This lint warning checks for two related problems:
+(1) Formatting strings that are invalid, meaning that `String.format` will throw exceptions at runtime when attempting to use the format string.
+(2) Strings containing &apos;%&apos; that are not formatting strings getting passed to a `String.format` call. In this case the &apos;%&apos; will need to be escaped as &apos;%%&apos;.
+
+NOTE: Not all Strings which look like formatting strings are intended for use by `String.format`; for example, they may contain date formats intended for `android.text.format.Time#format()`. Lint cannot always figure out that a String is a date format, so you may get false warnings in those scenarios. See the suppress help topic for information on how to suppress errors in that case."
+        errorLine1=" &lt;string name=&quot;oi_distribution_info_activity_text&quot;>% s निम्नलिखित अनुप्रयोगों के साथ इस्तेमाल किया जा सकता है:&lt;/string>"
+        errorLine2=" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-hi/strings.xml"
+            line="101"
+            column="2"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;about_copyright&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1=" &lt;string name=&quot;about_copyright&quot;>Copyright © 2008-2011 OpenIntents&lt;/string> "
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="21"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;about_copyright&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1=" &lt;string name=&quot;about_copyright&quot;>Copyright © 2008-2011 OpenIntents&lt;/string> "
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="21"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;about_website_url&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1=" &lt;string name=&quot;about_website_url&quot;>http://www.openintents.org&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="22"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;about_website_url&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1=" &lt;string name=&quot;about_website_url&quot;>http://www.openintents.org&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="22"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;about_email&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1=" &lt;string name=&quot;about_email&quot;>support@openintents.org&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="23"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;about_email&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1=" &lt;string name=&quot;about_email&quot;>support@openintents.org&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="23"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;about_authors&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string-array name=&quot;about_authors&quot;>&lt;!-- Add your name here if you helped out -->"
+        errorLine2="                  ~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="25"
+            column="19"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;about_authors&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string-array name=&quot;about_authors&quot;>&lt;!-- Add your name here if you helped out -->"
+        errorLine2="                  ~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="25"
+            column="19"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;about_artists&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string-array name=&quot;about_artists&quot;>&lt;!-- Add your name here if you helped out -->"
+        errorLine2="                  ~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="37"
+            column="19"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;about_artists&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string-array name=&quot;about_artists&quot;>&lt;!-- Add your name here if you helped out -->"
+        errorLine2="                  ~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="37"
+            column="19"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_update_checker_package&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1=" &lt;string name=&quot;oi_distribution_update_checker_package&quot;>org.openintents.updatechecker&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="46"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_update_checker_package&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1=" &lt;string name=&quot;oi_distribution_update_checker_package&quot;>org.openintents.updatechecker&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="46"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_update_checker_website&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_update_checker_website&quot;>http://www.openintents.org/en/node/203&lt;/string>&lt;!-- 203 = OI Update -->"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="47"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_update_checker_website&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_update_checker_website&quot;>http://www.openintents.org/en/node/203&lt;/string>&lt;!-- 203 = OI Update -->"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="47"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_aboutapp_package&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_aboutapp_package&quot;>org.openintents.about&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="50"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_aboutapp_package&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_aboutapp_package&quot;>org.openintents.about&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="50"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_aboutapp_website&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_aboutapp_website&quot;>http://www.openintents.org/en/node/202&lt;/string>&lt;!-- 202 = OI About -->"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="51"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_aboutapp_website&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_aboutapp_website&quot;>http://www.openintents.org/en/node/202&lt;/string>&lt;!-- 202 = OI About -->"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="51"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_supportapp_package&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_supportapp_package&quot;>org.openintents.support&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="54"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_supportapp_package&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_supportapp_package&quot;>org.openintents.support&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="54"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_supportapp_website&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_supportapp_website&quot;>http://www.openintents.org/en/node/202&lt;/string>&lt;!-- 202 = OI Support -->"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="55"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_supportapp_website&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_supportapp_website&quot;>http://www.openintents.org/en/node/202&lt;/string>&lt;!-- 202 = OI Support -->"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="55"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_barcodescanner_package&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_barcodescanner_package&quot;>org.openintents.barcodescanner&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="58"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_barcodescanner_package&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_barcodescanner_package&quot;>org.openintents.barcodescanner&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="58"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_barcodescanner_website&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_barcodescanner_website&quot;>http://www.openintents.org/en/node/679&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="59"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_barcodescanner_website&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_barcodescanner_website&quot;>http://www.openintents.org/en/node/679&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="59"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_filemanager_package&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_filemanager_package&quot;>org.openintents.filemanager&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="62"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_filemanager_package&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_filemanager_package&quot;>org.openintents.filemanager&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="62"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_filemanager_website&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_filemanager_website&quot;>http://www.openintents.org/en/filemanager&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="63"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_filemanager_website&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_filemanager_website&quot;>http://www.openintents.org/en/filemanager&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="63"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_safe_package&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_safe_package&quot;>org.openintents.safe&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="66"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_safe_package&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_safe_package&quot;>org.openintents.safe&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="66"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_safe_website&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_safe_website&quot;>http://www.openintents.org/en/safe&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="67"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_safe_website&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_safe_website&quot;>http://www.openintents.org/en/safe&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="67"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_supportapp_not_available&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_supportapp_not_available&quot;>No compatible extension available to display full info (Help/FAQ, Contact Developers, Feature request, Donations).&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml"
+            line="68"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_supportapp_not_available&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_supportapp_not_available&quot;>No compatible extension available to display full info (Help/FAQ, Contact Developers, Feature request, Donations).&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml"
+            line="68"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_supportapp_get&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_supportapp_get&quot;>Get OI Support&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml"
+            line="69"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_supportapp_get&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_supportapp_get&quot;>Get OI Support&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml"
+            line="69"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_supportapp&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1=" &lt;string name=&quot;oi_distribution_supportapp&quot;>OI Support&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml"
+            line="70"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_supportapp&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1=" &lt;string name=&quot;oi_distribution_supportapp&quot;>OI Support&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml"
+            line="70"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_support&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_support&quot;>Support&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml"
+            line="71"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="MissingTranslation"
+        severity="Fatal"
+        message="&quot;oi_distribution_support&quot; is not translated in ar, be, bg, bs, ca, cs, da, de, el, en-rGB, es, fa, fi, fr, hi, it, iw, ja, mk, nb, nl, oc, pa, pl, pt, pt-rBR, ro, ru, sd, sk, sl, sv, tl, tr, ug, zh-rCN"
+        category="Correctness:Messages"
+        priority="8"
+        summary="Checks for incomplete translations where not all strings are translated"
+        explanation="If an application has more than one locale, then all the strings declared in one language should also be translated in all other languages.
+
+If the string should *not* be translated, you can add the attribute `translatable=&quot;false&quot;` on the `&lt;string>` element, or you can define all your non-translatable strings in a resource file called `donottranslate.xml`. Or, you can ignore the issue with a `tools:ignore=&quot;MissingTranslation&quot;` attribute.
+
+By default this detector allows regions of a language to just provide a subset of the strings and fall back to the standard language strings. You can require all regions to provide a full translation by setting the environment variable `ANDROID_LINT_COMPLETE_REGIONS`.
+
+You can tell lint (and other tools) which language is the default language in your `res/values/` folder by specifying `tools:locale=&quot;languageCode&quot;` for the root `&lt;resources>` element in your resource file. (The `tools` prefix refers to the namespace declaration `http://schemas.android.com/tools`.)"
+        errorLine1="    &lt;string name=&quot;oi_distribution_support&quot;>Support&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml"
+            line="71"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="Typos"
+        severity="Warning"
+        message="&quot;yada&quot; is a common misspelling; did you mean &quot;ya da&quot; ?"
+        category="Correctness:Messages"
+        priority="7"
+        summary="Looks for typos in messages"
+        explanation="This check looks through the string definitions, and if it finds any words that look like likely misspellings, they are flagged."
+        errorLine1=" &lt;string name=&quot;oi_distribution_update_box_text&quot;>Güncelleştirmeleri  el ile kontrol edin yada Otomatik uyarı için OIGüncellemeyi yükleyin.&lt;/string>"
+        errorLine2="                                                                                        ^"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-tr/strings.xml"
+            line="50"
+            column="89"/>
+    </issue>
+
+    <issue
+        id="Typos"
+        severity="Warning"
+        message="&quot;yada&quot; is a common misspelling; did you mean &quot;ya da&quot; ?"
+        category="Correctness:Messages"
+        priority="7"
+        summary="Looks for typos in messages"
+        explanation="This check looks through the string definitions, and if it finds any words that look like likely misspellings, they are flagged."
+        errorLine1=" &lt;string name=&quot;oi_distribution_update_box_text&quot;>Güncelleştirmeleri  el ile kontrol edin yada Otomatik uyarı için OIGüncellemeyi yükleyin.&lt;/string>"
+        errorLine2="                                                                                        ^"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-tr/strings.xml"
+            line="50"
+            column="89"/>
+    </issue>
+
+    <issue
+        id="Typos"
+        severity="Warning"
+        message="Repeated word &quot;oder&quot; in message: possible typo"
+        category="Correctness:Messages"
+        priority="7"
+        summary="Looks for typos in messages"
+        explanation="This check looks through the string definitions, and if it finds any words that look like likely misspellings, they are flagged."
+        errorLine1=" &lt;string name=&quot;oi_distribution_update_box_text&quot;>Suchen Sie manuell nach Updates oder oder installieren Sie für eine automatische Benachrichtigung OI Update.&lt;/string>"
+        errorLine2="                                                                                ^"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-de/strings.xml"
+            line="53"
+            column="81"/>
+    </issue>
+
+    <issue
+        id="Typos"
+        severity="Warning"
+        message="Repeated word &quot;oder&quot; in message: possible typo"
+        category="Correctness:Messages"
+        priority="7"
+        summary="Looks for typos in messages"
+        explanation="This check looks through the string definitions, and if it finds any words that look like likely misspellings, they are flagged."
+        errorLine1=" &lt;string name=&quot;oi_distribution_update_box_text&quot;>Suchen Sie manuell nach Updates oder oder installieren Sie für eine automatische Benachrichtigung OI Update.&lt;/string>"
+        errorLine2="                                                                                ^"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-de/strings.xml"
+            line="53"
+            column="81"/>
+    </issue>
+
+    <issue
+        id="Typos"
+        severity="Warning"
+        message="&quot;yada&quot; is a common misspelling; did you mean &quot;ya da&quot; ?"
+        category="Correctness:Messages"
+        priority="7"
+        summary="Looks for typos in messages"
+        explanation="This check looks through the string definitions, and if it finds any words that look like likely misspellings, they are flagged."
+        errorLine1=" &lt;string name=&quot;oi_distribution_info_not_available&quot;>%1$s,%2$s %3$s yada daha yüksek bir sürümü gerektiriyor.&lt;/string>"
+        errorLine2="                                                                  ^"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-tr/strings.xml"
+            line="105"
+            column="67"/>
+    </issue>
+
+    <issue
+        id="Typos"
+        severity="Warning"
+        message="&quot;yada&quot; is a common misspelling; did you mean &quot;ya da&quot; ?"
+        category="Correctness:Messages"
+        priority="7"
+        summary="Looks for typos in messages"
+        explanation="This check looks through the string definitions, and if it finds any words that look like likely misspellings, they are flagged."
+        errorLine1=" &lt;string name=&quot;oi_distribution_info_not_available&quot;>%1$s,%2$s %3$s yada daha yüksek bir sürümü gerektiriyor.&lt;/string>"
+        errorLine2="                                                                  ^"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-tr/strings.xml"
+            line="105"
+            column="67"/>
+    </issue>
+
+    <issue
+        id="AllowBackup"
+        severity="Warning"
+        message="Should explicitly set android:allowBackup to true or false (it&apos;s true by default, and that can have some security implications for the application&apos;s data)"
+        category="Security"
+        priority="3"
+        summary="Ensure that allowBackup is explicitly set in the application&apos;s manifest"
+        explanation="The allowBackup attribute determines if an application&apos;s data can be backed up and restored. It is documented at http://developer.android.com/reference/android/R.attr.html#allowBackup
+
+By default, this flag is set to `true`. When this flag is set to `true`, application data can be backed up and restored by the user using `adb backup` and `adb restore`.
+
+This may have security consequences for an application. `adb backup` allows users who have enabled USB debugging to copy application data off of the device. Once backed up, all application data can be read by the user. `adb restore` allows creation of application data from a source specified by the user. Following a restore, applications should not assume that the data, file permissions, and directory permissions were created by the application itself.
+
+Setting `allowBackup=&quot;false&quot;` opts an application out of both backup and restore.
+
+To fix this warning, decide whether your application should support backup, and explicitly set `android:allowBackup=(true|false)&quot;`"
+        url="http://developer.android.com/reference/android/R.attr.html#allowBackup"
+        urls="http://developer.android.com/reference/android/R.attr.html#allowBackup"
+        errorLine1="    &lt;application android:label=&quot;@string/oi_distribution_app_name&quot;>"
+        errorLine2="    ^"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/AndroidManifest.xml"
+            line="13"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="AllowBackup"
+        severity="Warning"
+        message="Should explicitly set android:allowBackup to true or false (it&apos;s true by default, and that can have some security implications for the application&apos;s data)"
+        category="Security"
+        priority="3"
+        summary="Ensure that allowBackup is explicitly set in the application&apos;s manifest"
+        explanation="The allowBackup attribute determines if an application&apos;s data can be backed up and restored. It is documented at http://developer.android.com/reference/android/R.attr.html#allowBackup
+
+By default, this flag is set to `true`. When this flag is set to `true`, application data can be backed up and restored by the user using `adb backup` and `adb restore`.
+
+This may have security consequences for an application. `adb backup` allows users who have enabled USB debugging to copy application data off of the device. Once backed up, all application data can be read by the user. `adb restore` allows creation of application data from a source specified by the user. Following a restore, applications should not assume that the data, file permissions, and directory permissions were created by the application itself.
+
+Setting `allowBackup=&quot;false&quot;` opts an application out of both backup and restore.
+
+To fix this warning, decide whether your application should support backup, and explicitly set `android:allowBackup=(true|false)&quot;`"
+        url="http://developer.android.com/reference/android/R.attr.html#allowBackup"
+        urls="http://developer.android.com/reference/android/R.attr.html#allowBackup"
+        errorLine1="    &lt;application android:label=&quot;@string/oi_distribution_app_name&quot;>"
+        errorLine2="    ^"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/AndroidManifest.xml"
+            line="13"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.raw.oi_distribution_buttonbar appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds.">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/raw/oi_distribution_buttonbar.xml"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.raw.oi_distribution_buttonbar appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds.">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/raw/oi_distribution_buttonbar.xml"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.string.about_copyright appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1=" &lt;string name=&quot;about_copyright&quot;>Copyright © 2008-2011 OpenIntents&lt;/string> "
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="21"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.string.about_copyright appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1=" &lt;string name=&quot;about_copyright&quot;>Copyright © 2008-2011 OpenIntents&lt;/string> "
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="21"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.string.about_email appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1=" &lt;string name=&quot;about_email&quot;>support@openintents.org&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="23"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.string.about_email appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1=" &lt;string name=&quot;about_email&quot;>support@openintents.org&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="23"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.array.about_authors appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1="    &lt;string-array name=&quot;about_authors&quot;>&lt;!-- Add your name here if you helped out -->"
+        errorLine2="                  ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="25"
+            column="19"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.array.about_authors appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1="    &lt;string-array name=&quot;about_authors&quot;>&lt;!-- Add your name here if you helped out -->"
+        errorLine2="                  ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="25"
+            column="19"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.array.about_documenters appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1="    &lt;string-array name=&quot;about_documenters&quot;>&lt;!-- Add your name here if you helped out -->"
+        errorLine2="                  ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="29"
+            column="19"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.array.about_documenters appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1="    &lt;string-array name=&quot;about_documenters&quot;>&lt;!-- Add your name here if you helped out -->"
+        errorLine2="                  ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="29"
+            column="19"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.array.about_translators appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1="    &lt;string-array name=&quot;about_translators&quot;>&lt;!-- Add your name here if you helped out, but only in the arrays.xml for the localization that you helped to translate into! -->"
+        errorLine2="                  ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="33"
+            column="19"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.array.about_translators appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1="    &lt;string-array name=&quot;about_translators&quot;>&lt;!-- Add your name here if you helped out, but only in the arrays.xml for the localization that you helped to translate into! -->"
+        errorLine2="                  ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="33"
+            column="19"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.array.about_artists appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1="    &lt;string-array name=&quot;about_artists&quot;>&lt;!-- Add your name here if you helped out -->"
+        errorLine2="                  ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="37"
+            column="19"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.array.about_artists appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1="    &lt;string-array name=&quot;about_artists&quot;>&lt;!-- Add your name here if you helped out -->"
+        errorLine2="                  ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="37"
+            column="19"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.string.about_translators appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1=" &lt;string name=&quot;about_translators&quot;>translator-credits&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ar/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-be/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-bg/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-bs/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ca/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-cs/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-da/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-de/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-el/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-en-rGB/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-es/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-fa/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-fi/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-fr/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-hi/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-it/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-iw/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ja/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-mk/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-nb/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-nl/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-oc/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pa/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pl/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pt/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pt-rBR/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ro/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ru/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sd/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sk/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sl/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sv/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-tl/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-tr/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ug/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-zh-rCN/strings.xml"
+            line="10"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.string.about_translators appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1=" &lt;string name=&quot;about_translators&quot;>translator-credits&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ar/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-be/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-bg/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-bs/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ca/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-cs/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-da/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-de/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-el/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-en-rGB/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-es/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-fa/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-fi/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-fr/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-hi/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-it/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-iw/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ja/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-mk/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-nb/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-nl/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-oc/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pa/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pl/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pt/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pt-rBR/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ro/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ru/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sd/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sk/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sl/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sv/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-tl/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-tr/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ug/strings.xml"
+            line="10"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-zh-rCN/strings.xml"
+            line="10"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.string.oi_distribution_update_get_updater appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1=" &lt;string name=&quot;oi_distribution_update_get_updater&quot;>Get OI Updater&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml"
+            line="49"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ar/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-be/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-bg/strings.xml"
+            line="52"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-bs/strings.xml"
+            line="50"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ca/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-cs/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-da/strings.xml"
+            line="50"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-de/strings.xml"
+            line="55"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-el/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-en-rGB/strings.xml"
+            line="52"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-es/strings.xml"
+            line="53"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-fa/strings.xml"
+            line="52"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-fi/strings.xml"
+            line="50"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-fr/strings.xml"
+            line="54"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-hi/strings.xml"
+            line="53"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-it/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-iw/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ja/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-mk/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-nb/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-nl/strings.xml"
+            line="56"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-oc/strings.xml"
+            line="50"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pa/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pl/strings.xml"
+            line="52"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pt/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pt-rBR/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ro/strings.xml"
+            line="53"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ru/strings.xml"
+            line="54"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sd/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sk/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sl/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sv/strings.xml"
+            line="52"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-tl/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-tr/strings.xml"
+            line="52"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ug/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-zh-rCN/strings.xml"
+            line="53"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.string.oi_distribution_update_get_updater appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1=" &lt;string name=&quot;oi_distribution_update_get_updater&quot;>Get OI Updater&lt;/string>"
+        errorLine2="         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml"
+            line="49"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ar/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-be/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-bg/strings.xml"
+            line="52"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-bs/strings.xml"
+            line="50"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ca/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-cs/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-da/strings.xml"
+            line="50"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-de/strings.xml"
+            line="55"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-el/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-en-rGB/strings.xml"
+            line="52"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-es/strings.xml"
+            line="53"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-fa/strings.xml"
+            line="52"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-fi/strings.xml"
+            line="50"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-fr/strings.xml"
+            line="54"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-hi/strings.xml"
+            line="53"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-it/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-iw/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ja/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-mk/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-nb/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-nl/strings.xml"
+            line="56"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-oc/strings.xml"
+            line="50"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pa/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pl/strings.xml"
+            line="52"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pt/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pt-rBR/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ro/strings.xml"
+            line="53"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ru/strings.xml"
+            line="54"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sd/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sk/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sl/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sv/strings.xml"
+            line="52"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-tl/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-tr/strings.xml"
+            line="52"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ug/strings.xml"
+            line="51"
+            column="10"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-zh-rCN/strings.xml"
+            line="53"
+            column="10"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.string.oi_distribution_aboutapp_get appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1="    &lt;string name=&quot;oi_distribution_aboutapp_get&quot;>Get OI About&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml"
+            line="62"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ar/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-be/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-bg/strings.xml"
+            line="66"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-bs/strings.xml"
+            line="64"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ca/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-cs/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-da/strings.xml"
+            line="64"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-de/strings.xml"
+            line="69"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-el/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-en-rGB/strings.xml"
+            line="66"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-es/strings.xml"
+            line="67"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-fa/strings.xml"
+            line="66"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-fi/strings.xml"
+            line="64"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-fr/strings.xml"
+            line="68"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-hi/strings.xml"
+            line="67"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-it/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-iw/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ja/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-mk/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-nb/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-nl/strings.xml"
+            line="70"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-oc/strings.xml"
+            line="64"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pa/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pl/strings.xml"
+            line="66"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pt/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pt-rBR/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ro/strings.xml"
+            line="67"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ru/strings.xml"
+            line="68"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sd/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sk/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sl/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sv/strings.xml"
+            line="66"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-tl/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-tr/strings.xml"
+            line="66"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ug/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-zh-rCN/strings.xml"
+            line="67"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.string.oi_distribution_aboutapp_get appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1="    &lt;string name=&quot;oi_distribution_aboutapp_get&quot;>Get OI About&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml"
+            line="62"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ar/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-be/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-bg/strings.xml"
+            line="66"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-bs/strings.xml"
+            line="64"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ca/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-cs/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-da/strings.xml"
+            line="64"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-de/strings.xml"
+            line="69"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-el/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-en-rGB/strings.xml"
+            line="66"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-es/strings.xml"
+            line="67"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-fa/strings.xml"
+            line="66"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-fi/strings.xml"
+            line="64"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-fr/strings.xml"
+            line="68"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-hi/strings.xml"
+            line="67"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-it/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-iw/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ja/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-mk/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-nb/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-nl/strings.xml"
+            line="70"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-oc/strings.xml"
+            line="64"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pa/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pl/strings.xml"
+            line="66"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pt/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pt-rBR/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ro/strings.xml"
+            line="67"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ru/strings.xml"
+            line="68"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sd/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sk/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sl/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sv/strings.xml"
+            line="66"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-tl/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-tr/strings.xml"
+            line="66"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ug/strings.xml"
+            line="65"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-zh-rCN/strings.xml"
+            line="67"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.string.oi_distribution_supportapp_get appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1="    &lt;string name=&quot;oi_distribution_supportapp_get&quot;>Get OI Support&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml"
+            line="69"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.string.oi_distribution_supportapp_get appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1="    &lt;string name=&quot;oi_distribution_supportapp_get&quot;>Get OI Support&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml"
+            line="69"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.string.oi_distribution_support appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1="    &lt;string name=&quot;oi_distribution_support&quot;>Support&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml"
+            line="71"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.string.oi_distribution_support appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1="    &lt;string name=&quot;oi_distribution_support&quot;>Support&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml"
+            line="71"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.string.oi_distribution_safe_not_available_decrypt appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1="    &lt;string name=&quot;oi_distribution_safe_not_available_decrypt&quot;>No compatible application for decryption is available.\n\nNote: You have to restore the master key from a backup file in order to access previously encrypted data.&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml"
+            line="89"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ar/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-be/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-bg/strings.xml"
+            line="86"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-bs/strings.xml"
+            line="84"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ca/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-cs/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-da/strings.xml"
+            line="84"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-de/strings.xml"
+            line="89"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-el/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-en-rGB/strings.xml"
+            line="86"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-es/strings.xml"
+            line="87"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-fa/strings.xml"
+            line="86"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-fi/strings.xml"
+            line="84"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-fr/strings.xml"
+            line="88"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-hi/strings.xml"
+            line="87"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-it/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-iw/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ja/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-mk/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-nb/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-nl/strings.xml"
+            line="90"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-oc/strings.xml"
+            line="84"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pa/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pl/strings.xml"
+            line="86"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pt/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pt-rBR/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ro/strings.xml"
+            line="87"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ru/strings.xml"
+            line="88"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sd/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sk/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sl/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sv/strings.xml"
+            line="86"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-tl/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-tr/strings.xml"
+            line="86"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ug/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-zh-rCN/strings.xml"
+            line="87"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource R.string.oi_distribution_safe_not_available_decrypt appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Looks for unused resources"
+        explanation="Unused resources make applications larger and slow down builds."
+        errorLine1="    &lt;string name=&quot;oi_distribution_safe_not_available_decrypt&quot;>No compatible application for decryption is available.\n\nNote: You have to restore the master key from a backup file in order to access previously encrypted data.&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml"
+            line="89"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ar/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-be/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-bg/strings.xml"
+            line="86"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-bs/strings.xml"
+            line="84"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ca/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-cs/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-da/strings.xml"
+            line="84"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-de/strings.xml"
+            line="89"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-el/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-en-rGB/strings.xml"
+            line="86"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-es/strings.xml"
+            line="87"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-fa/strings.xml"
+            line="86"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-fi/strings.xml"
+            line="84"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-fr/strings.xml"
+            line="88"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-hi/strings.xml"
+            line="87"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-it/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-iw/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ja/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-mk/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-nb/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-nl/strings.xml"
+            line="90"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-oc/strings.xml"
+            line="84"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pa/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pl/strings.xml"
+            line="86"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pt/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pt-rBR/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ro/strings.xml"
+            line="87"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ru/strings.xml"
+            line="88"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sd/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sk/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sl/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-sv/strings.xml"
+            line="86"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-tl/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-tr/strings.xml"
+            line="86"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-ug/strings.xml"
+            line="85"
+            column="13"/>
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-zh-rCN/strings.xml"
+            line="87"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        severity="Warning"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        category="Usability:Typography"
+        priority="5"
+        summary="Looks for usages of hyphens which can be replaced by n dash and m dash characters"
+        explanation="The &quot;n dash&quot; (–, &amp;#8211;) and the &quot;m dash&quot; (—, &amp;#8212;) characters are used for ranges (n dash) and breaks (m dash). Using these instead of plain hyphens can make text easier to read and your application will look more polished."
+        url="http://en.wikipedia.org/wiki/Dash"
+        urls="http://en.wikipedia.org/wiki/Dash"
+        errorLine1=" &lt;string name=&quot;about_copyright&quot;>Copyright © 2008-2011 OpenIntents&lt;/string> "
+        errorLine2="                                ^"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="21"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="TypographyDashes"
+        severity="Warning"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?"
+        category="Usability:Typography"
+        priority="5"
+        summary="Looks for usages of hyphens which can be replaced by n dash and m dash characters"
+        explanation="The &quot;n dash&quot; (–, &amp;#8211;) and the &quot;m dash&quot; (—, &amp;#8212;) characters are used for ranges (n dash) and breaks (m dash). Using these instead of plain hyphens can make text easier to read and your application will look more polished."
+        url="http://en.wikipedia.org/wiki/Dash"
+        urls="http://en.wikipedia.org/wiki/Dash"
+        errorLine1=" &lt;string name=&quot;about_copyright&quot;>Copyright © 2008-2011 OpenIntents&lt;/string> "
+        errorLine2="                                ^"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml"
+            line="21"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        severity="Warning"
+        message="[Accessibility] Missing contentDescription attribute on image"
+        category="Accessibility"
+        priority="3"
+        summary="Ensures that image widgets provide a contentDescription"
+        explanation="Non-textual widgets like ImageViews and ImageButtons should use the `contentDescription` attribute to specify a textual description of the widget such that screen readers and other accessibility tools can adequately describe the user interface.
+
+Note that elements in application screens that are purely decorative and do not provide any content or enable a user action should not have accessibility content descriptions. In this case, just suppress the lint warning with a tools:ignore=&quot;ContentDescription&quot; attribute.
+
+Note that for text fields, you should not set both the `hint` and the `contentDescription` attributes since the hint will never be shown. Just set the `hint`. See http://developer.android.com/guide/topics/ui/accessibility/checklist.html#special-cases."
+        errorLine1="    &lt;ImageView android:id=&quot;@+id/imageview&quot;"
+        errorLine2="    ^"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/layout/oi_distribution_eula.xml"
+            line="48"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        severity="Warning"
+        message="[Accessibility] Missing contentDescription attribute on image"
+        category="Accessibility"
+        priority="3"
+        summary="Ensures that image widgets provide a contentDescription"
+        explanation="Non-textual widgets like ImageViews and ImageButtons should use the `contentDescription` attribute to specify a textual description of the widget such that screen readers and other accessibility tools can adequately describe the user interface.
+
+Note that elements in application screens that are purely decorative and do not provide any content or enable a user action should not have accessibility content descriptions. In this case, just suppress the lint warning with a tools:ignore=&quot;ContentDescription&quot; attribute.
+
+Note that for text fields, you should not set both the `hint` and the `contentDescription` attributes since the hint will never be shown. Just set the `hint`. See http://developer.android.com/guide/topics/ui/accessibility/checklist.html#special-cases."
+        errorLine1="    &lt;ImageView android:id=&quot;@+id/imageview&quot;"
+        errorLine2="    ^"
+        quickfix="adt">
+        <location
+            file="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/layout/oi_distribution_eula.xml"
+            line="48"
+            column="5"/>
+    </issue>
+
+</issues>

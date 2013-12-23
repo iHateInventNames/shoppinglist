@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml -->
+    <eat-comment />
+
+    <string-array name="about_artists"> <!-- Add your name here if you helped out -->
+        <item>Peli</item>
+    </string-array>
+    <string-array name="about_authors"> <!-- Add your name here if you helped out -->
+        <item>Peli</item>
+    </string-array>
+    <string-array name="about_documenters"> <!-- Add your name here if you helped out -->
+        <!-- <item></item> -->
+    </string-array>
+    <string-array name="about_translators"> <!-- Add your name here if you helped out, but only in the arrays.xml for the localization that you helped to translate into! -->
+        <!-- <item></item> -->
+    </string-array>
+
+    <string name="about_copyright">Copyright © 2008-2011 OpenIntents</string>
+    <string name="about_email">support@openintents.org</string>
+    <!-- From: file:/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml -->
+    <eat-comment />
+
+    <string name="about_translators">translator-credits</string>
+    <!-- From: file:/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml -->
+    <eat-comment />
+
+    <string name="about_website_url">http://www.openintents.org</string>
+    <!-- From: file:/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml -->
+    <eat-comment />
+
+    <string name="oi_distribution_about">About</string>
+    <string name="oi_distribution_aboutapp">OI About</string>
+    <string name="oi_distribution_aboutapp_get">Get OI About</string>
+    <string name="oi_distribution_aboutapp_not_available">No compatible extension available to display full info (contact, credits, license).</string>
+    <!-- From: file:/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml -->
+    <eat-comment />
+
+    <string name="oi_distribution_aboutapp_package">org.openintents.about</string>
+    <string name="oi_distribution_aboutapp_website">http://www.openintents.org/en/node/202</string>
+    <!-- From: file:/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml -->
+    <eat-comment />
+
+    <string name="oi_distribution_app_name">OI Distribution Library</string>
+    <string name="oi_distribution_barcodescanner">Barcode OI Plugin</string>
+    <string name="oi_distribution_barcodescanner_not_available">No compatible barcode scanner is available.</string>
+    <!-- From: file:/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml -->
+    <eat-comment />
+
+    <string name="oi_distribution_barcodescanner_package">org.openintents.barcodescanner</string>
+    <string name="oi_distribution_barcodescanner_website">http://www.openintents.org/en/node/679</string>
+    <!-- From: file:/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml -->
+    <eat-comment />
+
+    <string name="oi_distribution_download_market">Market download</string>
+    <string name="oi_distribution_download_market_message">Please download %s from the Market or the OpenIntents website.</string>
+    <string name="oi_distribution_download_message">Please download %s from the OpenIntents website.</string>
+    <string name="oi_distribution_download_title">Download %s</string>
+    <string name="oi_distribution_download_web">Web download</string>
+    <string name="oi_distribution_eula_accept">Accept</string>
+    <string name="oi_distribution_eula_message">Please read and accept the following End User License Agreement (EULA) for %s.</string>
+    <string name="oi_distribution_eula_refuse">Cancel</string>
+    <string name="oi_distribution_eula_title">%s EULA</string>
+    <string name="oi_distribution_filemanager">OI File Manager</string>
+    <string name="oi_distribution_filemanager_not_available">No compatible file manager is available.</string>
+    <!-- From: file:/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml -->
+    <eat-comment />
+
+    <string name="oi_distribution_filemanager_package">org.openintents.filemanager</string>
+    <string name="oi_distribution_filemanager_website">http://www.openintents.org/en/filemanager</string>
+    <!-- From: file:/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml -->
+    <eat-comment />
+
+    <string name="oi_distribution_info_activity_text">%s can be used with the following applications:</string>
+    <string name="oi_distribution_info_instructions">Instructions</string>
+    <string name="oi_distribution_info_launch">Launch %s</string>
+    <string name="oi_distribution_info_not_available">%1$s requires %2$s %3$s or higher.</string>
+    <string name="oi_distribution_launch_error">Application could not be launched</string>
+    <string name="oi_distribution_menu_update">Check updates</string>
+    <string name="oi_distribution_name_and_version">%1$s %2$s</string>
+    <string name="oi_distribution_newversion_continue">Continue</string>
+    <string name="oi_distribution_newversion_message">Welcome to this new version of %s.</string>
+    <string name="oi_distribution_newversion_recent_changes">Recent changes:</string>
+    <string name="oi_distribution_safe">OI Safe</string>
+    <string name="oi_distribution_safe_not_available">No compatible application for encryption is available.</string>
+    <string name="oi_distribution_safe_not_available_decrypt">No compatible application for decryption is available.\n\nNote: You have to restore the master key from a backup file in order to access previously encrypted data.</string>
+    <!-- From: file:/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml -->
+    <eat-comment />
+
+    <string name="oi_distribution_safe_package">org.openintents.safe</string>
+    <string name="oi_distribution_safe_website">http://www.openintents.org/en/safe</string>
+    <!-- From: file:/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml -->
+    <eat-comment />
+
+    <string name="oi_distribution_support">Support</string>
+    <string name="oi_distribution_supportapp">OI Support</string>
+    <string name="oi_distribution_supportapp_get">Get OI Support</string>
+    <string name="oi_distribution_supportapp_not_available">No compatible extension available to display full info (Help/FAQ, Contact Developers, Feature request, Donations).</string>
+    <!-- From: file:/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml -->
+    <eat-comment />
+
+    <string name="oi_distribution_supportapp_package">org.openintents.support</string>
+    <string name="oi_distribution_supportapp_website">http://www.openintents.org/en/node/202</string>
+    <!-- From: file:/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml -->
+    <eat-comment />
+
+    <string name="oi_distribution_update_app">OI Update</string>
+    <string name="oi_distribution_update_box_text">Check manually for updates or install OI Update for automatic notifications.</string>
+    <string name="oi_distribution_update_check_now">Check now</string>
+    <!-- From: file:/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/string_not_for_translation.xml -->
+    <eat-comment />
+
+    <string name="oi_distribution_update_checker_package">org.openintents.updatechecker</string>
+    <string name="oi_distribution_update_checker_website">http://www.openintents.org/en/node/203</string>
+    <!-- From: file:/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values/strings.xml -->
+    <eat-comment />
+
+    <string name="oi_distribution_update_error">Download application not available.</string>
+    <string name="oi_distribution_update_get_updater">Get OI Updater</string>
+
+</resources>

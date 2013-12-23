@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIShoppingListLibrary/src/main/res" />
+        <source path="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIShoppingListLibrary/build/res/rs/release" />
+    </dataSet>
+    <dataSet config="release" >
+        <source path="/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIShoppingListLibrary/src/release/res" />
+    </dataSet>
+
+</merger>

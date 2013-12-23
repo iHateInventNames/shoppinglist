@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-hi/strings.xml -->
+    <eat-comment />
+
+    <string name="about_translators">Launchpad Contributions:
+  Atharva Lath https://launchpad.net/~atharvalath96
+  OpenIntents devs https://launchpad.net/~openintents-devs
+  happynawani https://launchpad.net/~happynawani
+  vishal panjwani https://launchpad.net/~vishal-panjwani15</string>
+    <string name="oi_distribution_about">के बारे में</string>
+    <string name="oi_distribution_aboutapp">OI के बारें में</string>
+    <string name="oi_distribution_aboutapp_get">OI \'के बारें में\' प्राप्त करें</string>
+    <string name="oi_distribution_aboutapp_not_available">पूरी जानकारी (संपर्क, श्रेय, लाइसेंस) प्रदर्शित करने के लिए कोई संगत पुर्ण एक्सटेंशन उपलब्ध नहीं है|</string>
+    <string name="oi_distribution_app_name">OI वितरण लाइब्रेरी</string>
+    <string name="oi_distribution_barcodescanner">बारकोड प्लगइन</string>
+    <string name="oi_distribution_barcodescanner_not_available">कोई संगत बारकोड स्केन्नर उपलब्ध नहीं है</string>
+    <string name="oi_distribution_download_market">बाजार से डाउनलोड करें</string>
+    <string name="oi_distribution_download_market_message">बाजार या OpenIntents वेबसाइट से %s डाउनलोड करें|</string>
+    <string name="oi_distribution_download_message">OpenIntents वेबसाइट से%s डाउनलोड करें|</string>
+    <string name="oi_distribution_download_title">%s  डाउनलोड करें</string>
+    <string name="oi_distribution_download_web">वेब से डाउनलोड करें</string>
+    <string name="oi_distribution_eula_accept">स्वीकारें</string>
+    <string name="oi_distribution_eula_message">%s के लिए निम्नलिखित एंड यूज़र लायसेंस एग्रीमेंट (EULA) पढ़ें और स्वीकार करें|</string>
+    <string name="oi_distribution_eula_refuse">रद्द करें</string>
+    <string name="oi_distribution_eula_title">%s EULA</string>
+    <string name="oi_distribution_filemanager">OI फ़ाइल प्रबंधक</string>
+    <string name="oi_distribution_filemanager_not_available">कोई संगत पुर्ण  फ़ाइल प्रबंधक उपलब्ध है|</string>
+    <string name="oi_distribution_info_activity_text">% s निम्नलिखित अनुप्रयोगों के साथ इस्तेमाल किया जा सकता है:</string>
+    <string name="oi_distribution_info_instructions">निर्देश</string>
+    <string name="oi_distribution_info_launch">%s लॉन्च करें</string>
+    <string name="oi_distribution_info_not_available">%1$s को आवश्यकता है  %2$s %3$s या अधिक की|</string>
+    <string name="oi_distribution_launch_error">अनुप्रयोग शुरू नहीं किया जा सका</string>
+    <string name="oi_distribution_menu_update">अद्यतनों की जाँच करें</string>
+    <string name="oi_distribution_name_and_version">%1$s %2$s</string>
+    <string name="oi_distribution_newversion_continue">जारी रखें</string>
+    <string name="oi_distribution_newversion_message">%s के इस नए संस्करण में आपका स्वागत है|</string>
+    <string name="oi_distribution_newversion_recent_changes">हाल में किये गए बदलाव:</string>
+    <string name="oi_distribution_safe">OI सुरक्षित</string>
+    <string name="oi_distribution_safe_not_available">एन्क्रिप्शन के लिए कोई संगत पुर्ण अनुप्रयोग उपलब्ध नहीं  है|</string>
+    <string name="oi_distribution_safe_not_available_decrypt">डिक्रिप्शन के लिए कोई संगत पुर्ण अनुप्रयोग उपलब्ध नहीं है|\n\nनोट:पहले वाले एन्क्रिप्टेड डेटा का उपयोग करने के लिए आपको बैकअप फ़ाइल से मास्टर कुंजी पुनर्स्थापित करनी होगी|</string>
+    <string name="oi_distribution_update_app">OI अद्यतन</string>
+    <string name="oi_distribution_update_box_text">अद्यतनों के लिए मैन्युअल जाँच करें या स्वत: सूचना के लिए OI अद्यतन स्थापित करें|</string>
+    <string name="oi_distribution_update_check_now">अब जाँच करें</string>
+    <string name="oi_distribution_update_error">डाउनलोड अनुप्रयोग उपलब्ध नहीं है|</string>
+    <string name="oi_distribution_update_get_updater">OI अद्यतनकर्ता प्राप्त करें</string>
+
+</resources>

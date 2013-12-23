@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-bg/strings.xml -->
+    <eat-comment />
+
+    <string name="about_translators">Launchpad Contributions:
+  Dariel Kremov https://launchpad.net/~dkremov
+  Kras4ooo https://launchpad.net/~kkrassi1984
+  OpenIntents devs https://launchpad.net/~openintents-devs</string>
+    <string name="oi_distribution_about">За</string>
+    <string name="oi_distribution_aboutapp">OI За</string>
+    <string name="oi_distribution_aboutapp_get">Вземи OI За</string>
+    <string name="oi_distribution_aboutapp_not_available">Няма налични съвместими разширения за показване на пълна информация (контакти, кредити, лиценз).</string>
+    <string name="oi_distribution_app_name">Разпределение на OI библиотека</string>
+    <string name="oi_distribution_barcodescanner">Баркод OI Приставка</string>
+    <string name="oi_distribution_barcodescanner_not_available">Не е наличен съвместим баркод скенер.</string>
+    <string name="oi_distribution_download_market">Изтегляне от пазар</string>
+    <string name="oi_distribution_download_market_message">Моля изтеглете %s от Пазара или от сайта на OpenIntents</string>
+    <string name="oi_distribution_download_message">Моля изтеглете %s от сайта на OpenIntents</string>
+    <string name="oi_distribution_download_title">Изтегляне %s</string>
+    <string name="oi_distribution_download_web">уеб изтегляне</string>
+    <string name="oi_distribution_eula_accept">Приемам</string>
+    <string name="oi_distribution_eula_message">Моля, прочетете и приемете следното споразумение с краен потребителски лиценз (EULA) за %s.</string>
+    <string name="oi_distribution_eula_refuse">Отказване</string>
+    <string name="oi_distribution_eula_title">%s EULA</string>
+    <string name="oi_distribution_filemanager">OI Файлов Диспечер</string>
+    <string name="oi_distribution_filemanager_not_available">Не е съвместим наличният файлове диспечер</string>
+    <string name="oi_distribution_info_activity_text">%s може да се използва със следните приложения:</string>
+    <string name="oi_distribution_info_instructions">Инструкции</string>
+    <string name="oi_distribution_info_launch">Стартиране %s</string>
+    <string name="oi_distribution_info_not_available">%1$s изисква %2$s %3$s или по-висока.</string>
+    <string name="oi_distribution_launch_error">Приложението не може да бъде стартирано</string>
+    <string name="oi_distribution_menu_update">Проверка за обновления</string>
+    <string name="oi_distribution_name_and_version">%1$s %2$s</string>
+    <string name="oi_distribution_newversion_continue">Продължи</string>
+    <string name="oi_distribution_newversion_message">Добре дошли в тази нова версия на %s.</string>
+    <string name="oi_distribution_newversion_recent_changes">Последни промени:</string>
+    <string name="oi_distribution_safe">OI Безопасен</string>
+    <string name="oi_distribution_safe_not_available">Наличното приложение за криптиране не е съвместимо</string>
+    <string name="oi_distribution_safe_not_available_decrypt">Наличното приложение за декриптиране е несъвместимо.\n\nЗабележка:За да се възстанови главният ключ от архивения файл, с цел достъп до по-раннокриптирани данни.</string>
+    <string name="oi_distribution_update_app">OI Обновления</string>
+    <string name="oi_distribution_update_box_text">Проверете ръчно за ъпдейти или инсталирате OI Актуализация за автоматични уведомления.</string>
+    <string name="oi_distribution_update_check_now">Провери сега</string>
+    <string name="oi_distribution_update_error">Сваленото приложение не е активно</string>
+    <string name="oi_distribution_update_get_updater">Вземи OI Актуализация</string>
+
+</resources>

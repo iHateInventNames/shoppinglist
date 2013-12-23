@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-mk/strings.xml -->
+    <eat-comment />
+
+    <string name="about_translators">Launchpad Contributions:
+  OpenIntents devs https://launchpad.net/~openintents-devs
+  Pance Zvezdanov https://launchpad.net/~pance-zvezdanov</string>
+    <string name="oi_distribution_about">За</string>
+    <string name="oi_distribution_aboutapp">За OI</string>
+    <string name="oi_distribution_aboutapp_get">Земи За OI</string>
+    <string name="oi_distribution_aboutapp_not_available">Нема компатибилен додаток за да ги прикаже сите информации (контакт, заслуги, лиценца).</string>
+    <string name="oi_distribution_app_name">OI Библиотека за распределба</string>
+    <string name="oi_distribution_barcodescanner">Баркот OI приклучок</string>
+    <string name="oi_distribution_barcodescanner_not_available">Нема компатибилен баркод скенер.</string>
+    <string name="oi_distribution_download_market">Симнување од пазар</string>
+    <string name="oi_distribution_download_market_message">Ве молиме симнете %s од Пазарот или од вебсајтот на OpenIntents.</string>
+    <string name="oi_distribution_download_message">Ве молиме симнете %s од вебсајтот на OpenIntents.</string>
+    <string name="oi_distribution_download_title">Симни %s</string>
+    <string name="oi_distribution_download_web">Симнување од мрежа</string>
+    <string name="oi_distribution_eula_accept">Прифати</string>
+    <string name="oi_distribution_eula_message">Ве молиме прочитајте и прифатете го следниов Договор за лиценца на краен корисник (EULA) за %s.</string>
+    <string name="oi_distribution_eula_refuse">Откажи</string>
+    <string name="oi_distribution_eula_title">%s EULA</string>
+    <string name="oi_distribution_filemanager">OI Управувач со датотеки</string>
+    <string name="oi_distribution_filemanager_not_available">Нема коматибилен управувач со датотеки.</string>
+    <string name="oi_distribution_info_activity_text">%s може да се користи со следниве апликации:</string>
+    <string name="oi_distribution_info_instructions">Инструкции</string>
+    <string name="oi_distribution_info_launch">Пушти %s</string>
+    <string name="oi_distribution_info_not_available">%1$s бара %2$s %3$s или понова.</string>
+    <string name="oi_distribution_launch_error">Апликацијата не може да стартува</string>
+    <string name="oi_distribution_menu_update">Ажурирај</string>
+    <string name="oi_distribution_name_and_version">%1$s %2$s</string>
+    <string name="oi_distribution_newversion_continue">Продолжи</string>
+    <string name="oi_distribution_newversion_message">Добредојдовте во новата верзија од %s.</string>
+    <string name="oi_distribution_newversion_recent_changes">Последни промени:</string>
+    <string name="oi_distribution_safe">OI Сеф</string>
+    <string name="oi_distribution_safe_not_available">Нема компатибилна апликација за енкрипција.</string>
+    <string name="oi_distribution_safe_not_available_decrypt">Нема компатибилна апликација за енкрипција.\n\nNote: Вие морате да го вратите главниот клуч од бекап датотека за да пристапите кон претходно екриптирани податоци.</string>
+    <string name="oi_distribution_update_app">OI Ажурирај</string>
+    <string name="oi_distribution_update_box_text">Провери рачно за надградби или инсталирај OI Ажурирај за автоматски известувања.</string>
+    <string name="oi_distribution_update_check_now">Провери сега</string>
+    <string name="oi_distribution_update_error">Апликацијата не е достапна за симнување.</string>
+    <string name="oi_distribution_update_get_updater">Земи OI Надградувач</string>
+
+</resources>

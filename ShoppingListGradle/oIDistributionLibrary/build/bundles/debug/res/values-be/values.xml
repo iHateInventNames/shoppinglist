@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-be/strings.xml -->
+    <eat-comment />
+
+    <string name="about_translators">Launchpad Contributions:
+  Alexander Geroimenko https://launchpad.net/~geroimenko
+  OpenIntents devs https://launchpad.net/~openintents-devs</string>
+    <string name="oi_distribution_about">А праграме</string>
+    <string name="oi_distribution_aboutapp">OI А праграме</string>
+    <string name="oi_distribution_aboutapp_get">Атрымаць OI А праграме</string>
+    <string name="oi_distribution_aboutapp_not_available">Няма даступнага сумяшчальнага пашырэння для адлюстравання поўнай інфармацыі (кантакты, ліцэнзія).</string>
+    <string name="oi_distribution_app_name">OI Размеркавальная бібліятэка</string>
+    <string name="oi_distribution_barcodescanner">Barcode OI Plugin</string>
+    <string name="oi_distribution_barcodescanner_not_available">No compatible barcode scanner is available.</string>
+    <string name="oi_distribution_download_market">Запампаваць з Market</string>
+    <string name="oi_distribution_download_market_message">Калі ласка, запампуйце %s з Market, або з сайта OpenIntents.</string>
+    <string name="oi_distribution_download_message">Калі ласка, запампуйце %s з сайта OpenIntents.</string>
+    <string name="oi_distribution_download_title">Запампоўка %s</string>
+    <string name="oi_distribution_download_web">Анлайн запампоўка</string>
+    <string name="oi_distribution_eula_accept">Прыняць</string>
+    <string name="oi_distribution_eula_message">Калі ласка, прачытайце і прыміце пагадненне карыстальніка для %s.</string>
+    <string name="oi_distribution_eula_refuse">Адмяніць</string>
+    <string name="oi_distribution_eula_title">Пагадненне карыстальніка %s</string>
+    <string name="oi_distribution_filemanager">OI Файл-мэнэджар</string>
+    <string name="oi_distribution_filemanager_not_available">Няма даступнага сумяшчальнага файлавага мэнэджэру.</string>
+    <string name="oi_distribution_info_activity_text">%s можа быць выкарыстаны разам з наступнымі прыкладаннямі:</string>
+    <string name="oi_distribution_info_instructions">Інструкцыі</string>
+    <string name="oi_distribution_info_launch">Запуск %s</string>
+    <string name="oi_distribution_info_not_available">%1$s патрабуе %2$s %3$s ці вышэй.</string>
+    <string name="oi_distribution_launch_error">Прыкладанне не можа быць запушчана.</string>
+    <string name="oi_distribution_menu_update">Праверка абнаўленняў</string>
+    <string name="oi_distribution_name_and_version">%1$s %2$s</string>
+    <string name="oi_distribution_newversion_continue">Далей</string>
+    <string name="oi_distribution_newversion_message">Сардэчна запрашаем у новую версію %s.</string>
+    <string name="oi_distribution_newversion_recent_changes">Апошнія змяненні:</string>
+    <string name="oi_distribution_safe">OI Сэйф</string>
+    <string name="oi_distribution_safe_not_available">Няма даступнага сумяшчальнага прыкладання для кадавання.</string>
+    <string name="oi_distribution_safe_not_available_decrypt">Няма даступнага сумяшчальнага прыкладання для дэкадавання.\n\nПадказка: Вам патрэбна будзе аднавіць мастэр ключ да рэзервовай копіі, каб атрымаць доступ да закадаванай інфармацыі.</string>
+    <string name="oi_distribution_update_app">OI Абнаўленні</string>
+    <string name="oi_distribution_update_box_text">Праверце абнаўленні ўручную, ці ўсталюйце OI Абнаўленні для аўтаматычнай праверкі.</string>
+    <string name="oi_distribution_update_check_now">Праверыць зараз</string>
+    <string name="oi_distribution_update_error">Запампоўка прыкладання недаступна.</string>
+    <string name="oi_distribution_update_get_updater">Атрымаць OI Абнаўленні</string>
+
+</resources>

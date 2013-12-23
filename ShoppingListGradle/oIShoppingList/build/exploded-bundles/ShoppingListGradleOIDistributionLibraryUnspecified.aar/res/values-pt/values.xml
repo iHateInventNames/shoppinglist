@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- From: file:/Users/malmstein/Documents/_Dev/openintents/shoppinglist/ShoppingListGradle/oIDistributionLibrary/src/main/res/values-pt/strings.xml -->
+    <eat-comment />
+
+    <string name="about_translators">Launchpad Contributions:
+  OpenIntents devs https://launchpad.net/~openintents-devs
+  Sérgio Marques https://launchpad.net/~sergio+marques</string>
+    <string name="oi_distribution_about">Sobre</string>
+    <string name="oi_distribution_aboutapp">OI About</string>
+    <string name="oi_distribution_aboutapp_get">Obter OI About</string>
+    <string name="oi_distribution_aboutapp_not_available">Não tem a extensão para exibir as informações integrais (contactos, créditos, licença).</string>
+    <string name="oi_distribution_app_name">Biblioteca de distribuição OI</string>
+    <string name="oi_distribution_barcodescanner">Plugin Barcode OI</string>
+    <string name="oi_distribution_barcodescanner_not_available">não possui uma analisador de códigos de barras.</string>
+    <string name="oi_distribution_download_market">Transferência no Market</string>
+    <string name="oi_distribution_download_market_message">Por favor, transfira %s do Market ou da página OpenIntents.</string>
+    <string name="oi_distribution_download_message">Por favor, transfira %s da página OpenIntents.</string>
+    <string name="oi_distribution_download_title">Transferir %s</string>
+    <string name="oi_distribution_download_web">Transferência Web</string>
+    <string name="oi_distribution_eula_accept">Aceitar</string>
+    <string name="oi_distribution_eula_message">Por favor, leia e aceite o acordo de licenciamento de utilizador final (EULA) do %s.</string>
+    <string name="oi_distribution_eula_refuse">Cancelar</string>
+    <string name="oi_distribution_eula_title">Eula do %s</string>
+    <string name="oi_distribution_filemanager">Gestor de ficheiros OI</string>
+    <string name="oi_distribution_filemanager_not_available">Não possui um gestor de ficheiros compatível.</string>
+    <string name="oi_distribution_info_activity_text">Pode utilizar %s com as seguintes aplicações:</string>
+    <string name="oi_distribution_info_instructions">Instruções</string>
+    <string name="oi_distribution_info_launch">Iniciar %s</string>
+    <string name="oi_distribution_info_not_available">%1$s requer %2$s %3$s ou superior.</string>
+    <string name="oi_distribution_launch_error">A aplicação não foi iniciada</string>
+    <string name="oi_distribution_menu_update">Procurar atualizações</string>
+    <string name="oi_distribution_name_and_version">%1$s %2$s</string>
+    <string name="oi_distribution_newversion_continue">Continuar</string>
+    <string name="oi_distribution_newversion_message">Bem-vindo à nova versão do %s.</string>
+    <string name="oi_distribution_newversion_recent_changes">Alterações recentes:</string>
+    <string name="oi_distribution_safe">OI Safe</string>
+    <string name="oi_distribution_safe_not_available">Não possui a aplicação para codificação.</string>
+    <string name="oi_distribution_safe_not_available_decrypt">Não possui a aplicação para descodificação.\n\nNota: tem que restaurar a chave mestre da cópia de segurança para aceder aos dados codificados.</string>
+    <string name="oi_distribution_update_app">OI Update</string>
+    <string name="oi_distribution_update_box_text">Procure as atualizações manualmente ou instale o OI Update para receber notificações.</string>
+    <string name="oi_distribution_update_check_now">Procurar agora</string>
+    <string name="oi_distribution_update_error">Atualização não disponível.</string>
+    <string name="oi_distribution_update_get_updater">Obter OI Updater</string>
+
+</resources>

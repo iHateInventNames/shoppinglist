@@ -1,6 +1,8 @@
 package org.openintents.shopping.glassware;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,38 +23,31 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        createCards();
+        Intent intent = getIntent();
+        String action = intent.getAction();
+        String type = intent.getType();
 
-        mCardScrollView = new CardScrollView(this);
-        ExampleCardScrollAdapter adapter = new ExampleCardScrollAdapter();
-        mCardScrollView.setAdapter(adapter);
-        mCardScrollView.activate();
-        setContentView(mCardScrollView);
+        if ("android.intent.action.OPEN_URI".equals(action)) {
+            createCards(intent.getData());
+
+            mCardScrollView = new CardScrollView(this);
+            ExampleCardScrollAdapter adapter = new ExampleCardScrollAdapter();
+            mCardScrollView.setAdapter(adapter);
+            mCardScrollView.activate();
+            setContentView(mCardScrollView);
+        }
+
     }
 
-    private void createCards() {
+    private void createCards(Uri data) {
         mCards = new ArrayList<Card>();
 
         Card card;
 
         card = new Card(this);
-        card.setText("This card has a footer.");
-        card.setFootnote("I'm the footer!");
+        card.setText(data.toString());
         mCards.add(card);
 
-        card = new Card(this);
-        card.setText("This card has a puppy background image.");
-        card.setFootnote("How can you resist?");
-        card.addImage(R.drawable.ic_launcher);
-        mCards.add(card);
-
-        card = new Card(this);
-        card.setText("This card has a mosaic of puppies.");
-        card.setFootnote("Aren't they precious?");
-        card.addImage(R.drawable.ic_launcher);
-        card.addImage(R.drawable.ic_launcher);
-        card.addImage(R.drawable.ic_launcher);
-        mCards.add(card);
     }
 
     private class ExampleCardScrollAdapter extends CardScrollAdapter {

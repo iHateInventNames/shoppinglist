@@ -12,7 +12,7 @@
     android:label="@string/app_name">
 
     <activity
-      android:name="org.openintents.shopping.glassware.MainActivity"
+      android:name=".ShoppingListCardScroll"
       android:label="@string/app_name"
       android:icon="@drawable/ic_storefront_50">
       <intent-filter>
@@ -21,12 +21,11 @@
       </intent-filter>
 
       <intent-filter>
-        <action android:name="com.google.android.glass.action.OPEN_URI" />
+        <action android:name="android.intent.action.VIEW" />
         <category android:name="android.intent.category.DEFAULT" />
-
+        <category android:name="android.intent.category.BROWSABLE" />
         <data
-          android:scheme="shoppinglist"
-          android:host="openintents"/>
+          android:scheme="shoppingitem"/>
       </intent-filter>
 
       <intent-filter>

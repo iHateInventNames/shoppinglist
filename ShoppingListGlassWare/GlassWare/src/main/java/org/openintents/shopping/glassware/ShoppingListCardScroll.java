@@ -2,7 +2,6 @@ package org.openintents.shopping.glassware;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,43 +13,55 @@ import com.google.android.glass.widget.CardScrollView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends Activity {
+public class ShoppingListCardScroll extends Activity {
 
     private List<Card> mCards;
     private CardScrollView mCardScrollView;
+    private ShoppingListCardScrollAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        createTitleCard();
+
+        initCardsUI();
+
+        setContentView(mCardScrollView);
+
         Intent intent = getIntent();
         String action = intent.getAction();
-        String type = intent.getType();
 
-        if ("android.intent.action.OPEN_URI".equals(action)) {
-            createCards(intent.getData());
+        if (Intent.ACTION_VIEW.equals(action)) {
+            createCards(intent.getData().getPath());
 
-            mCardScrollView = new CardScrollView(this);
-            ExampleCardScrollAdapter adapter = new ExampleCardScrollAdapter();
-            mCardScrollView.setAdapter(adapter);
-            mCardScrollView.activate();
-            setContentView(mCardScrollView);
         }
 
     }
 
-    private void createCards(Uri data) {
-        mCards = new ArrayList<Card>();
-
-        Card card;
-
-        card = new Card(this);
-        card.setText(data.toString());
+    private void createTitleCard() {
+        Card card = new Card(this);
+        card.setImageLayout(Card.ImageLayout.FULL);
+        card.addImage(R.drawable.ic_mrt_bg);
+        card.setText("Shopping List");
         mCards.add(card);
-
     }
 
-    private class ExampleCardScrollAdapter extends CardScrollAdapter {
+    private void initCardsUI() {
+        adapter = new ShoppingListCardScrollAdapter();
+        mCards = new ArrayList<Card>();
+        mCardScrollView = new CardScrollView(this);
+        mCardScrollView.setAdapter(adapter);
+        mCardScrollView.activate();
+    }
+
+    private void createCards(String data) {
+        Card card = new Card(this);
+        card.setText(data.toString());
+        mCards.add(card);
+    }
+
+    private class ShoppingListCardScrollAdapter extends CardScrollAdapter {
         @Override
         public int findIdPosition(Object id) {
             return -1;

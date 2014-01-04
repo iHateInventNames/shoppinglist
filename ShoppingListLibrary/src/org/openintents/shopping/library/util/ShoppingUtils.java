@@ -103,35 +103,28 @@ public class ShoppingUtils {
 	 *            New name of the item.
 	 * @param price
 	 * @param barcode
+	 * @param contentValues 
 	 * 
 	 * @return id of the new or existing item.
 	 */
 	public static long updateOrCreateItem(Context context, String name,
-			String tags, String price, String barcode, String list_id) {
+			String tags, String price, String barcode, String list_id, ContentValues contentValues) {
+		ContentValues values = getContentValues(name, tags, price, barcode, contentValues);
+		return updateOrCreateItem(context, list_id, name, values);
+	}
+	
+	public static long updateOrCreateItem(Context context, String list_id, String name, ContentValues values) {
 		long id;
 		
 		if (list_id == null)
 			id = getItemId(context, name);
 		else
 			id = getItemIdForList(context, name, list_id);
-
+		
 		if (id >= 0) {
-			// Update existing item
-			// (pass 'null' for name: Existing item: no need to change name.)
-			ContentValues values = getContentValues(name, tags, price, barcode);
-			try {
-				Uri uri = Uri.withAppendedPath(
-						ShoppingContract.Items.CONTENT_URI, String.valueOf(id));
-				context.getContentResolver().update(uri, values, null, null);
-				if (debug) Log.d(TAG, "updated item: " + uri);
-			} catch (Exception e) {
-				Log.e(TAG, "Update item failed", e);
-			}
-		}
-
-		if (id == -1) {
+			updateItem(context, id, values);
+		} else if (id == -1) {
 			// Add new item to list:
-			ContentValues values = getContentValues(name, tags, price, barcode);
 			try {
 				Uri uri = context.getContentResolver().insert(
 						ShoppingContract.Items.CONTENT_URI, values);
@@ -146,8 +139,58 @@ public class ShoppingUtils {
 
 	}
 
+	public static void updateItem(Context context, long id, ContentValues values) {
+		// Update existing item
+		// (pass 'null' for name: Existing item: no need to change name.)
+		try {
+			Uri uri = Uri.withAppendedPath(
+					ShoppingContract.Items.CONTENT_URI, String.valueOf(id));
+			boolean modifiedDatePresent = values.containsKey(ShoppingContract.Items.MODIFIED_DATE);
+			String modifiedDateTime;
+			String where;
+			
+			if(modifiedDatePresent){
+				modifiedDateTime = values.getAsString(ShoppingContract.Items.MODIFIED_DATE);
+				where = "modified<" + modifiedDateTime; 
+			} else {
+				modifiedDateTime = null;
+				where = null;
+			}
+			
+			// support Contain update
+			ContentValues containValues = new ContentValues();
+			if(values.containsKey(ShoppingContract.Contains.STATUS)){
+				containValues.put(ShoppingContract.Contains.STATUS, values.getAsLong(ShoppingContract.Contains.STATUS));
+				values.remove(ShoppingContract.Contains.STATUS);
+			}
+			if(values.containsKey(ShoppingContract.Contains.QUANTITY)){
+				containValues.put(ShoppingContract.Contains.QUANTITY, values.getAsLong(ShoppingContract.Contains.QUANTITY));
+				values.remove(ShoppingContract.Contains.QUANTITY);
+			}
+			if(values.containsKey(ShoppingContract.Contains.PRIORITY)){
+				containValues.put(ShoppingContract.Contains.PRIORITY, values.getAsLong(ShoppingContract.Contains.PRIORITY));
+				values.remove(ShoppingContract.Contains.PRIORITY);
+			}
+			
+			int numRowsUpdated = context.getContentResolver().update(uri, values, where, null);
+			if(numRowsUpdated > 0 && containValues.size() > 0) // need Contain update
+			{
+				if(modifiedDatePresent)
+					containValues.put(ShoppingContract.Items.MODIFIED_DATE, modifiedDateTime);
+				context.getContentResolver().update(
+						ShoppingContract.Contains.CONTENT_URI,
+						containValues,
+						ShoppingContract.Contains.ITEM_ID + " = " + id, null);
+				
+			}
+			if (debug) Log.d(TAG, "updated item: " + uri);
+		} catch (Exception e) {
+			Log.e(TAG, "Update item failed", e);
+		}
+	}
+
 	private static ContentValues getContentValues(String name, String tags,
-			String price, String barcode) {
+			String price, String barcode, ContentValues contentValues) {
 		ContentValues values = new ContentValues(4);
 		if (name != null) {
 			values.put(ShoppingContract.Items.NAME, name);
@@ -162,6 +205,10 @@ public class ShoppingUtils {
 		if (barcode != null) {
 			values.put(ShoppingContract.Items.BARCODE, barcode);
 		}
+		if (contentValues != null) { 
+			values.putAll(contentValues);
+		}
+		
 		return values;
 	}
 

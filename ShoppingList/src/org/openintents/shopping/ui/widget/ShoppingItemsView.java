@@ -1210,8 +1210,9 @@ public class ShoppingItemsView extends ListView {
 	 * @param quantity
 	 * @param price
 	 * @param barcode
+	 * @return item id
 	 */
-	public void insertNewItem(Activity activity, String newItem,
+	public long insertNewItem(Activity activity, String newItem,
 			String quantity, String priority, String price, String barcode) {
 
 		String list_id = null;
@@ -1222,7 +1223,7 @@ public class ShoppingItemsView extends ListView {
 		newItem = newItem.trim();
 
 		long itemId = ShoppingUtils.updateOrCreateItem(getContext(), newItem,
-				null, price, barcode, list_id);
+				null, price, barcode, list_id, null);
 
 		if (debug) Log.i(TAG, "Insert new item. " + " itemId = " + itemId + ", listId = "
 				+ mListId);
@@ -1249,6 +1250,7 @@ public class ShoppingItemsView extends ListView {
 			}
 		}
 
+		return itemId;
 	}
 
 	/**

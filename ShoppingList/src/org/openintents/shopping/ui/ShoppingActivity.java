@@ -22,6 +22,12 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
+import junit.framework.Assert;
+
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.openintents.OpenIntents;
 import org.openintents.distribution.DistributionLibraryFragmentActivity;
 import org.openintents.distribution.DownloadOIAppDialog;
@@ -34,13 +40,14 @@ import org.openintents.shopping.R;
 import org.openintents.shopping.library.provider.ShoppingContract;
 import org.openintents.shopping.library.provider.ShoppingContract.Contains;
 import org.openintents.shopping.library.provider.ShoppingContract.ContainsFull;
-import org.openintents.shopping.library.provider.ShoppingContract.ItemStores;
 import org.openintents.shopping.library.provider.ShoppingContract.Items;
 import org.openintents.shopping.library.provider.ShoppingContract.Lists;
 import org.openintents.shopping.library.provider.ShoppingContract.Status;
 import org.openintents.shopping.library.provider.ShoppingContract.Stores;
 import org.openintents.shopping.library.util.PriceConverter;
 import org.openintents.shopping.library.util.ShoppingUtils;
+import org.openintents.shopping.share.Connectivity;
+import org.openintents.shopping.share.Connectivity.JsonProcessor;
 import org.openintents.shopping.ui.dialog.DialogActionListener;
 import org.openintents.shopping.ui.dialog.EditItemDialog;
 import org.openintents.shopping.ui.dialog.EditItemDialog.FieldType;
@@ -79,6 +86,8 @@ import android.database.ContentObserver;
 import android.database.Cursor;
 import android.hardware.SensorListener;
 import android.hardware.SensorManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -532,6 +541,8 @@ public class ShoppingActivity extends DistributionLibraryFragmentActivity
 
 		int defaultShoppingList = getLastUsedListFromPrefs();
 
+		sync();		
+		
 		// Handle the calling intent
 		final Intent intent = getIntent();
 		final String type = intent.resolveType(this);
@@ -662,6 +673,103 @@ public class ShoppingActivity extends DistributionLibraryFragmentActivity
 		onModeChanged();
 
 		mItemsView.setActionBarListener(this);
+	}
+
+	/// send updates to server and recieve updates of other devices
+	protected void sync() {
+		
+		
+		ConnectivityManager cm =
+		        (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+		 
+		NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+		// check connection 
+		boolean isConnected = activeNetwork != null &&
+		                      activeNetwork.isConnectedOrConnecting();
+		// boolean isWiFi = activeNetwork.getType() == ConnectivityManager.TYPE_WIFI; // should not matter. 
+		// if user opens its application and his device is connected to Internet than most likely he need to download updates. 
+		// Anyway generated traffic not too high.
+		
+		if(isConnected)
+		{
+			// Get Delayed data
+			String selection = "list_id = ? and " + ShoppingContract.Items.IS_SYNCED + "='0'";
+			Cursor notSynced = getBaseContext().getContentResolver().query(
+					ContainsFull.CONTENT_URI, ShoppingActivity.mStringItems,
+					selection, new String[] { String.valueOf(getSelectedListId()) }, null);
+			notSynced.moveToFirst();
+			JSONObject syncJson = new JSONObject();
+			while (!notSynced.isAfterLast()) {
+				String name = notSynced.getString(notSynced.getColumnIndex(ShoppingContract.Items.NAME));
+				int status = notSynced.getInt(notSynced.getColumnIndex(ShoppingContract.Contains.STATUS));
+				long modified = notSynced.getLong(notSynced.getColumnIndex(ShoppingContract.Contains.MODIFIED_DATE));
+				try {
+					JSONObject item = new JSONObject();
+					item.put(ShoppingContract.Items.NAME, name);
+					item.put(ShoppingContract.Contains.STATUS, status);
+					item.put(ShoppingContract.Contains.MODIFIED_DATE, modified);
+					
+					syncJson.put(Connectivity.UPDATE_ITEM_COMMAND, item);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	
+				notSynced.moveToNext();
+			}
+			notSynced.close();
+			
+			
+			Connectivity.Request(this, 
+					new JsonProcessor() {
+			
+						@Override
+						public void run(JSONObject result) {
+							// TODO validate list
+							if (result != null) {
+								String text = "";
+								try {
+									switch (result.getInt(Connectivity.RESULT_RESPONSE)) {
+									case Connectivity.RESULT_CODE_SUCCESS:
+										
+										JSONArray list =result.getJSONArray(Connectivity.RESULT_RESPONSE_LIST);
+										for (int i = 0; i < list.length(); ++i) {
+											JSONObject item = list.getJSONObject(i);
+
+											ContentValues values = new ContentValues();
+											String name = item.getString(ShoppingContract.Items.NAME);
+											values.put(ShoppingContract.Items.NAME, name);
+											values.put(ShoppingContract.Items.MODIFIED_DATE, item.getString(ShoppingContract.Items.MODIFIED_DATE));
+											values.put(ShoppingContract.Contains.STATUS, item.getLong(ShoppingContract.Contains.STATUS));
+											values.put(ShoppingContract.Items.IS_SYNCED, true);
+											ShoppingUtils.updateOrCreateItem(ShoppingActivity.this, String.valueOf(getSelectedListId()), name, values);
+										}	
+										
+										text = "The data sent to server.";
+										break;
+									default:
+										//Assert.assertFalse(true);
+										text = "??";
+									}
+								} catch (JSONException e) {
+									e.printStackTrace();
+									Assert.assertFalse(true);
+									text = "??";
+								}
+								Toast.makeText(ShoppingActivity.this, text,
+										Toast.LENGTH_LONG).show();
+							}
+
+						}
+					}, 
+					new BasicNameValuePair( Connectivity.SYNC_COMMAND, 
+											syncJson.toString())
+				);
+		} 
+		else // isConnected
+		{
+			// TODO : subscribe to detect when connection back
+		}
 	}
 
 	@Override
@@ -1591,9 +1699,40 @@ public class ShoppingActivity extends DistributionLibraryFragmentActivity
 				// and no item is selected.
 				return;
 			}
-			mItemsView.insertNewItem(this, newItem, null, null, null, null);
+			final long id = mItemsView.insertNewItem(this, newItem, null, null, null, null);
 			mEditText.setText("");
 			fillAutoCompleteTextViewAdapter();
+
+			// TODO : send datetime
+			Connectivity.Request(this, new Connectivity.JsonProcessor() {
+
+				@Override
+				public void run(JSONObject result) {
+					if (result != null) {
+						String text = "";
+						try {
+							switch (result.getInt(Connectivity.RESULT_RESPONSE)) {
+							case Connectivity.RESULT_CODE_SUCCESS:
+								text = "The data sent to server.";
+								ContentValues values = new ContentValues();
+								values.put(ShoppingContract.Items.IS_SYNCED, true);
+								ShoppingUtils.updateItem(ShoppingActivity.this, id, values);
+								break;
+							default:
+								//Assert.assertFalse(true);
+								text = "??";
+							}
+						} catch (JSONException e) {
+							e.printStackTrace();
+							Assert.assertFalse(true);
+							text = "??";
+						}
+						Toast.makeText(ShoppingActivity.this, text,
+								Toast.LENGTH_LONG).show();
+					}
+				}
+
+			}, new BasicNameValuePair(Connectivity.ADD_COMMAND, newItem));
 		} else {
 			// Open list to select item from
 			pickItems();
@@ -2632,6 +2771,9 @@ public class ShoppingActivity extends DistributionLibraryFragmentActivity
 	 * @return ID of selected shopping list.
 	 */
 	private long getSelectedListId() {
+		if(mShoppingListsView == null)
+			return -1;
+		
 		int pos = mShoppingListsView.getSelectedItemPosition();
 		// Temp- Due to architecture requirements of OS 3, the value can not be
 		// passed directly

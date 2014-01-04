@@ -143,6 +143,14 @@ public abstract class ShoppingContract {
 		public static final String DUE_DATE = "due";
 
 		/**
+		 * Was the item data sent to server
+		 * <P>
+		 * Type: BOOL
+		 * </P>
+		 */
+		public static final String IS_SYNCED = "synced";
+		
+		/**
 		 * Generic projection map.
 		 */
 		public static final String[] PROJECTION = { _ID, NAME, IMAGE, PRICE,

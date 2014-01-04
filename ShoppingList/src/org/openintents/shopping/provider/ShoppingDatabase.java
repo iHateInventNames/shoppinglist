@@ -40,7 +40,7 @@ public class ShoppingDatabase extends SQLiteOpenHelper {
 	 * 1.2.7-beta 8: Release 1.2.7-beta 9: Release 1.3.0 10: Release 1.3.1-beta
 	 * 11: Release 1.4.0-beta
 	 */
-	static final int DATABASE_VERSION = 13;
+	static final int DATABASE_VERSION = 14;
 
 	public static final String DATABASE_NAME = "shopping.db";
 
@@ -65,7 +65,8 @@ public class ShoppingDatabase extends SQLiteOpenHelper {
 				+ "due INTEGER," // V4
 				+ "created INTEGER," // V1
 				+ "modified INTEGER," // V1
-				+ "accessed INTEGER" // V1
+				+ "accessed INTEGER," // V1
+				+ "synced INTEGER" // V14
 				+ ");");
 		db.execSQL("CREATE TABLE lists (" + "_id INTEGER PRIMARY KEY," // V1
 				+ "name VARCHAR," // V1

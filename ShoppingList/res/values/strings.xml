@@ -35,6 +35,8 @@
 	<string name="new_item">New item</string>
 	<string name="new_list">New list</string>
 	<string name="send">Send list</string>
+	<string name="menu_share">Share the list</string>
+	<string name="menu_connect">Connect to list</string>
 	<string name="mark_all_items">Mark all items</string>
 	<string name="unmark_all_items">Unmark all items</string>
 	<string name="empty_list_not_sent">Empty list not sent.</string>
@@ -368,4 +370,5 @@
 	<string name="widget_next_page">Next page</string>
 	<string name="widget_choose_a_list">Choose a list</string>
 	<string name="widget_no_items">No items on page %d</string>
+
 </resources> 

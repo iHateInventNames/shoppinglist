@@ -33,7 +33,7 @@ public class Connectivity extends Service {
 	public static final String SYNC_COMMAND = "sync";
 	
 
-	String id;
+	private String id;
 
 	public static abstract class JsonProcessor implements Runnable {
 		@Override
@@ -57,18 +57,17 @@ public class Connectivity extends Service {
 			this.processResult = processResult;
 
 			// read instance guid
-			if (id == null) {
+			if (getId() == null) {
 				SharedPreferences preferences = PreferenceManager
 						.getDefaultSharedPreferences(context);
 				if (preferences.contains("id")) {
 					String idPref = preferences.getString("id", null);
-					id = UUID.fromString(idPref).toString().replace("-", "");
+					setId(idPref);
 				} else {
-					id = UUID.randomUUID().toString();
+					setId(UUID.randomUUID().toString().replace("-", ""));
 					Editor editor = preferences.edit();
-					editor.putString("id", id.toString());
+					editor.putString("id", getId().toString());
 					editor.commit();
-					id = id.replace("-", "");
 				}
 			}
 		}
@@ -78,7 +77,7 @@ public class Connectivity extends Service {
 			JSONParser jParser = new JSONParser();
 			ArrayList<NameValuePair> paramList = new ArrayList<NameValuePair>();
 			paramList.addAll(Arrays.asList(params));
-			BasicNameValuePair idPair = new BasicNameValuePair("uuid", id);
+			BasicNameValuePair idPair = new BasicNameValuePair("uuid", getId());
 			paramList.add(idPair);
 			JSONObject json = jParser.makeHttpRequest(SERVER_BASE_URL, "POST", paramList);
 			return json;
@@ -106,5 +105,13 @@ public class Connectivity extends Service {
 	public static void Request(Activity activity,
 			JsonProcessor resultProcessor, NameValuePair... params) {
 		this_.InternalRequest(activity, resultProcessor, params);
+	}
+
+	public static String getId() {
+		return this_.id;
+	}
+
+	public static void setId(String id) {
+		this_.id = id;
 	}
 }

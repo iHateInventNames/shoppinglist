@@ -126,10 +126,21 @@ public class ShoppingUtils {
 		} else if (id == -1) {
 			// Add new item to list:
 			try {
+				// support Contains create
+				ContentValues containsValues = extractValuesOfContainsTable(values);
+				
 				Uri uri = context.getContentResolver().insert(
 						ShoppingContract.Items.CONTENT_URI, values);
 				if (debug) Log.d(TAG, "Insert new item: " + uri);
 				id = Long.parseLong(uri.getPathSegments().get(1));
+				
+				if(containsValues.size() > 0 && id != -1) {
+					containsValues.put(Contains.ITEM_ID, id);
+					containsValues.put(Contains.LIST_ID, list_id);
+					context.getContentResolver().insert(
+							ShoppingContract.Contains.CONTENT_URI, containsValues);
+				}
+					
 			} catch (Exception e) {
 				Log.e(TAG, "Insert item failed", e);
 				// return -1
@@ -157,23 +168,11 @@ public class ShoppingUtils {
 				where = null;
 			}
 			
-			// support Contain update
-			ContentValues containValues = new ContentValues();
-			if(values.containsKey(ShoppingContract.Contains.STATUS)){
-				containValues.put(ShoppingContract.Contains.STATUS, values.getAsLong(ShoppingContract.Contains.STATUS));
-				values.remove(ShoppingContract.Contains.STATUS);
-			}
-			if(values.containsKey(ShoppingContract.Contains.QUANTITY)){
-				containValues.put(ShoppingContract.Contains.QUANTITY, values.getAsLong(ShoppingContract.Contains.QUANTITY));
-				values.remove(ShoppingContract.Contains.QUANTITY);
-			}
-			if(values.containsKey(ShoppingContract.Contains.PRIORITY)){
-				containValues.put(ShoppingContract.Contains.PRIORITY, values.getAsLong(ShoppingContract.Contains.PRIORITY));
-				values.remove(ShoppingContract.Contains.PRIORITY);
-			}
+			// support Contains update
+			ContentValues containValues = extractValuesOfContainsTable(values);
 			
-			int numRowsUpdated = context.getContentResolver().update(uri, values, where, null);
-			if(numRowsUpdated > 0 && containValues.size() > 0) // need Contain update
+			context.getContentResolver().update(uri, values, where, null);
+			if(containValues.size() > 0) // need Contain update
 			{
 				if(modifiedDatePresent)
 					containValues.put(ShoppingContract.Items.MODIFIED_DATE, modifiedDateTime);
@@ -187,6 +186,28 @@ public class ShoppingUtils {
 		} catch (Exception e) {
 			Log.e(TAG, "Update item failed", e);
 		}
+	}
+
+	/**
+	 * @param values - ContentValues 
+	 * @return new ContentValues wit values for Contains table that moved from original ContentValues
+	 */
+	private static ContentValues extractValuesOfContainsTable(
+			ContentValues values) {
+		ContentValues containValues = new ContentValues();
+		if(values.containsKey(ShoppingContract.Contains.STATUS)){
+			containValues.put(ShoppingContract.Contains.STATUS, values.getAsLong(ShoppingContract.Contains.STATUS));
+			values.remove(ShoppingContract.Contains.STATUS);
+		}
+		if(values.containsKey(ShoppingContract.Contains.QUANTITY)){
+			containValues.put(ShoppingContract.Contains.QUANTITY, values.getAsLong(ShoppingContract.Contains.QUANTITY));
+			values.remove(ShoppingContract.Contains.QUANTITY);
+		}
+		if(values.containsKey(ShoppingContract.Contains.PRIORITY)){
+			containValues.put(ShoppingContract.Contains.PRIORITY, values.getAsLong(ShoppingContract.Contains.PRIORITY));
+			values.remove(ShoppingContract.Contains.PRIORITY);
+		}
+		return containValues;
 	}
 
 	private static ContentValues getContentValues(String name, String tags,

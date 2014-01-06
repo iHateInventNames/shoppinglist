@@ -5,6 +5,7 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 import org.openintents.distribution.DownloadAppDialog;
+import org.openintents.provider.Alert.DateTime;
 import org.openintents.shopping.R;
 import org.openintents.shopping.library.provider.ShoppingContract;
 import org.openintents.shopping.library.provider.ShoppingContract.Contains;
@@ -1152,6 +1153,7 @@ public class ShoppingItemsView extends ListView {
 		
 		ContentValues values = new ContentValues();
 		values.put(ShoppingContract.Contains.STATUS, newstatus);
+		values.put(ShoppingContract.Contains.MODIFIED_DATE, Long.valueOf(System.currentTimeMillis()));
 		if (debug) Log.d(TAG, "update row " + mCursorItems.getString(0) + ", newstatus "
 				+ newstatus);
 		getContext().getContentResolver().update(

@@ -21,7 +21,6 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.UUID;
 
 import junit.framework.Assert;
 
@@ -29,7 +28,6 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONStringer;
 import org.openintents.OpenIntents;
 import org.openintents.distribution.DistributionLibraryFragmentActivity;
 import org.openintents.distribution.DownloadOIAppDialog;
@@ -50,7 +48,6 @@ import org.openintents.shopping.library.util.PriceConverter;
 import org.openintents.shopping.library.util.ShoppingUtils;
 import org.openintents.shopping.share.Connectivity;
 import org.openintents.shopping.share.Connectivity.JsonProcessor;
-import org.openintents.shopping.share.JSONParser;
 import org.openintents.shopping.ui.dialog.DialogActionListener;
 import org.openintents.shopping.ui.dialog.EditItemDialog;
 import org.openintents.shopping.ui.dialog.EditItemDialog.FieldType;
@@ -84,7 +81,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.content.SyncResult;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.database.ContentObserver;
@@ -707,12 +703,87 @@ public class ShoppingActivity extends DistributionLibraryFragmentActivity
 		getContentResolver().unregisterContentObserver(containsSyncObserver);
 	}
 	
+	static boolean synchronizingRightNow = false;
+	class SynchronizationResultProcessor extends JsonProcessor {
+		
+		final String listId;
+
+		SynchronizationResultProcessor(long listId) {
+			synchronizingRightNow = true;
+			this.listId = String.valueOf(listId);
+		}
+
+		@Override
+		public void run(JSONObject result) {
+			if (result != null) {
+				String text = "";
+				try {
+					switch (result.getInt(Connectivity.RESULT_RESPONSE)) {
+					case Connectivity.RESULT_CODE_SUCCESS:
+
+						JSONArray list =result.getJSONArray(Connectivity.RESULT_RESPONSE_LIST);
+						int recievedCount = list.length();
+						unregisterSyncObserver();
+						for (int i = 0; i < recievedCount; ++i) {
+							JSONObject item = list.getJSONObject(i);
+
+							ContentValues values = new ContentValues();
+							String name = item.getString(ShoppingContract.Items.NAME);
+							long status = item.getLong(ShoppingContract.Contains.STATUS);
+							final String modified = item.getString(ShoppingContract.Items.MODIFIED_DATE);
+							if(status == -1) { // delete
+								long itemId = ShoppingUtils.getItemId(ShoppingActivity.this, name);
+								if(itemId != -1) {
+									String itemIdStr = String.valueOf(itemId);
+									Cursor c = getContentResolver().query(Contains.CONTENT_URI, 
+												new String[] { Contains.LIST_ID, Contains.ITEM_ID, Contains.MODIFIED_DATE },
+												"list_id=? and item_id=? and modified_date<?", 
+												new String[] {listId, itemIdStr, modified},
+												null);
+									if(c.getCount() > 0) 
+										ShoppingUtils.deleteItem(ShoppingActivity.this, itemIdStr, listId);
+									c.close();
+								}
+							} else { // create or update
+								values.put(ShoppingContract.Items.NAME, name);
+								values.put(ShoppingContract.Items.MODIFIED_DATE, modified);
+								values.put(ShoppingContract.Contains.STATUS, status);
+								values.put(ShoppingContract.Items.IS_SYNCED, true);
+								ShoppingUtils.updateOrCreateItem(ShoppingActivity.this, listId, name, values);
+							}
+						}	
+						registerSyncObserver();
+						
+						mItemsView.fillItems(ShoppingActivity.this, getSelectedListId());
+						fillAutoCompleteTextViewAdapter();
+						
+						text = "Synchronized with server.";
+						
+						break;
+						
+					default:
+						//Assert.assertFalse(true);
+						text = "??";
+					}
+				} catch (JSONException e) {
+					e.printStackTrace();
+					Assert.assertFalse(true);
+					text = "??";
+				}
+				Toast.makeText(ShoppingActivity.this, text,
+						Toast.LENGTH_LONG).show();
+			}
+			synchronizingRightNow = false;
+		}
+	};
+	
 	/// send updates to server and receive updates of other devices
 	protected void sync() {
 		
 		final long selectedListId = getSelectedListId();
-		if(selectedListId != -1)
+		if(selectedListId != -1 && !synchronizingRightNow)
 		{
+			
 			ConnectivityManager cm =
 			        (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
 			 
@@ -780,57 +851,8 @@ public class ShoppingActivity extends DistributionLibraryFragmentActivity
 				}
 				
 				Connectivity.Request(this, 
-						new JsonProcessor() {
-				
-							@Override
-							public void run(JSONObject result) {
-								// TODO validate list
-								if (result != null) {
-									String text = "";
-									try {
-										switch (result.getInt(Connectivity.RESULT_RESPONSE)) {
-										case Connectivity.RESULT_CODE_SUCCESS:
-
-											JSONArray list =result.getJSONArray(Connectivity.RESULT_RESPONSE_LIST);
-											int recievedCount = list.length();
-											unregisterSyncObserver();
-											for (int i = 0; i < recievedCount; ++i) {
-												JSONObject item = list.getJSONObject(i);
-	
-												ContentValues values = new ContentValues();
-												String name = item.getString(ShoppingContract.Items.NAME);
-												values.put(ShoppingContract.Items.NAME, name);
-												values.put(ShoppingContract.Items.MODIFIED_DATE, item.getString(ShoppingContract.Items.MODIFIED_DATE));
-												values.put(ShoppingContract.Contains.STATUS, item.getLong(ShoppingContract.Contains.STATUS));
-												values.put(ShoppingContract.Items.IS_SYNCED, true);
-												ShoppingUtils.updateOrCreateItem(ShoppingActivity.this, String.valueOf(selectedListId), name, values);
-											}	
-											registerSyncObserver();
-											
-											mItemsView.fillItems(ShoppingActivity.this, getSelectedListId());
-											fillAutoCompleteTextViewAdapter();
-											
-											text = "Synchronized with server.";
-											
-											break;
-											
-										default:
-											//Assert.assertFalse(true);
-											text = "??";
-										}
-									} catch (JSONException e) {
-										e.printStackTrace();
-										Assert.assertFalse(true);
-										text = "??";
-									}
-									Toast.makeText(ShoppingActivity.this, text,
-											Toast.LENGTH_LONG).show();
-								}
-								
-							}
-						}, 
-						new BasicNameValuePair( Connectivity.SYNC_COMMAND, 
-												syncJson.toString())
+						new SynchronizationResultProcessor(selectedListId), 
+						new BasicNameValuePair( Connectivity.SYNC_COMMAND, syncJson.toString())
 					);
 			} 
 			else // isConnected
@@ -2512,6 +2534,21 @@ public class ShoppingActivity extends DistributionLibraryFragmentActivity
 
 		String listId = mListUri.getLastPathSegment();
 		String itemId = c.getString(mStringItemsITEMID);
+		
+		// delete on server
+		JSONObject item = new JSONObject();
+		try {
+			item.put(Items.NAME, c.getString(mStringItemsITEMNAME));
+			item.put(Contains.STATUS, -1);
+			item.put(Items.MODIFIED_DATE, System.currentTimeMillis());
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Connectivity.Request(this, 
+				new SynchronizationResultProcessor(getSelectedListId()),
+				new BasicNameValuePair(Connectivity.UPDATE_ITEM_COMMAND, item.toString()));
+
 		ShoppingUtils.deleteItem(this, itemId, listId);
 
 		// c.requery();
@@ -2584,6 +2621,7 @@ public class ShoppingActivity extends DistributionLibraryFragmentActivity
 		// Delete item by changing its state
 		ContentValues values = new ContentValues();
 		values.put(Contains.STATUS, Status.REMOVED_FROM_LIST);
+		values.put(Contains.MODIFIED_DATE, System.currentTimeMillis());
 		if (PreferenceActivity.getResetQuantity(getApplicationContext()))
 			values.put(Contains.QUANTITY, "");
 		getContentResolver().update(Contains.CONTENT_URI, values, "_id = ?",

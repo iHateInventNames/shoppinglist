@@ -18,6 +18,7 @@ public class AutomationActions {
 			// by changing state
 			ContentValues values = new ContentValues();
 			values.put(Contains.STATUS, Status.REMOVED_FROM_LIST);
+			values.put(Contains.MODIFIED_DATE, System.currentTimeMillis());
 			boolean nothingdeleted = context.getContentResolver().update(
 					Contains.CONTENT_URI,
 					values,

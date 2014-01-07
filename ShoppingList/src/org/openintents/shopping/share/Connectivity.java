@@ -28,7 +28,6 @@ public class Connectivity extends Service {
 	public static final String RESULT_RESPONSE_TEXT = "result_text";
 	public static final String RESULT_RESPONSE_LIST = "list";	
 	
-	public static final String ADD_COMMAND = "add";
 	public static final String UPDATE_ITEM_COMMAND = "update";
 	public static final String SYNC_COMMAND = "sync";
 	

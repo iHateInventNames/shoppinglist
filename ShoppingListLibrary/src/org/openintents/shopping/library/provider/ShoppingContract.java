@@ -143,14 +143,6 @@ public abstract class ShoppingContract {
 		public static final String DUE_DATE = "due";
 
 		/**
-		 * Was the item data sent to server
-		 * <P>
-		 * Type: BOOL
-		 * </P>
-		 */
-		public static final String IS_SYNCED = "synced";
-		
-		/**
 		 * Generic projection map.
 		 */
 		public static final String[] PROJECTION = { _ID, NAME, IMAGE, PRICE,
@@ -229,6 +221,18 @@ public abstract class ShoppingContract {
 		 * </P>
 		 */
 		public static final String ACCESSED_DATE = "accessed";
+
+		/**
+		 * The name of the shared shopping list that should be worldwide unique.
+		 * 
+		 * It is formed of the current user's email address and a unique suffix.
+		 * 
+		 * <P>
+		 * Type: TEXT
+		 * </P>
+		 * Available since release db v 14.
+		 */
+		public static final String SHARE_ID = "share_id";
 
 		/**
 		 * The name of the shared shopping list that should be worldwide unique.

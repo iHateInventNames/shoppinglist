@@ -21,6 +21,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.UUID;
 
 import junit.framework.Assert;
 
@@ -80,7 +81,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.database.ContentObserver;
@@ -93,7 +93,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.preference.PreferenceManager;
 import android.support.v2.os.Build;
 import android.support.v2.view.MenuCompat;
 import android.text.Editable;
@@ -708,9 +707,9 @@ public class ShoppingActivity extends DistributionLibraryFragmentActivity
 		
 		final String listId;
 
-		SynchronizationResultProcessor(long listId) {
+		SynchronizationResultProcessor(String listId) {
 			synchronizingRightNow = true;
-			this.listId = String.valueOf(listId);
+			this.listId = listId;
 		}
 
 		@Override
@@ -737,7 +736,7 @@ public class ShoppingActivity extends DistributionLibraryFragmentActivity
 									String itemIdStr = String.valueOf(itemId);
 									Cursor c = getContentResolver().query(Contains.CONTENT_URI, 
 												new String[] { Contains.LIST_ID, Contains.ITEM_ID, Contains.MODIFIED_DATE },
-												"list_id=? and item_id=? and modified_date<?", 
+												"list_id=? and item_id=? and modified<?", 
 												new String[] {listId, itemIdStr, modified},
 												null);
 									if(c.getCount() > 0) 
@@ -748,13 +747,12 @@ public class ShoppingActivity extends DistributionLibraryFragmentActivity
 								values.put(ShoppingContract.Items.NAME, name);
 								values.put(ShoppingContract.Items.MODIFIED_DATE, modified);
 								values.put(ShoppingContract.Contains.STATUS, status);
-								values.put(ShoppingContract.Items.IS_SYNCED, true);
 								ShoppingUtils.updateOrCreateItem(ShoppingActivity.this, listId, name, values);
 							}
 						}	
 						registerSyncObserver();
 						
-						mItemsView.fillItems(ShoppingActivity.this, getSelectedListId());
+						mItemsView.fillItems(ShoppingActivity.this, Long.parseLong(listId));
 						fillAutoCompleteTextViewAdapter();
 						
 						text = "Synchronized with server.";
@@ -779,87 +777,109 @@ public class ShoppingActivity extends DistributionLibraryFragmentActivity
 	
 	/// send updates to server and receive updates of other devices
 	protected void sync() {
-		
-		final long selectedListId = getSelectedListId();
-		if(selectedListId != -1 && !synchronizingRightNow)
-		{
-			
-			ConnectivityManager cm =
-			        (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-			 
-			NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-			// check connection 
-			boolean isConnected = activeNetwork != null &&
-			                      activeNetwork.isConnectedOrConnecting();
-			// boolean isWiFi = activeNetwork.getType() == ConnectivityManager.TYPE_WIFI; // should not matter. 
-			// if user opens its application and his device is connected to Internet than most likely he need to download updates. 
-			// Anyway generated traffic not too high.
-			
-			if(isConnected)
+		if(!synchronizingRightNow) {
+			final long selectedListId = mItemsView.getListId();
+			String listId = String.valueOf(selectedListId);
+			final String listShareUuid = getListShareId(listId);
+			if(selectedListId != -1 && listShareUuid!=null)
 			{
-				// Get Delayed data
-				String selection = "list_id = ?";
-								// "list_id = ? and " + ShoppingContract.Items.IS_SYNCED + "='0'";
-				Cursor containsCursor = getBaseContext().getContentResolver().query(
-						Contains.CONTENT_URI, 
-						SYNC_PROJECTION,
-						selection, 
-						new String[] { String.valueOf(selectedListId) }, 
-						null);
-				containsCursor.moveToFirst();
-				JSONObject syncJson = new JSONObject();
-				JSONArray itemsToSend = new JSONArray();
-				while (!containsCursor.isAfterLast()) {
-					int status = containsCursor.getInt(containsCursor.getColumnIndex(Contains.STATUS));
-					long itemId = containsCursor.getLong(containsCursor.getColumnIndex(Contains.ITEM_ID));
-					long modified = containsCursor.getLong(containsCursor.getColumnIndex(Contains.MODIFIED_DATE));
-					try {
-						JSONObject item = new JSONObject();
-						item.put(ShoppingContract.ContainsFull.STATUS, status);
-						
-						Uri itemUri = Uri.withAppendedPath(
-								Items.CONTENT_URI, String.valueOf(itemId));
-						Cursor itemsCursor = getBaseContext().getContentResolver().query(
-								itemUri, 
-								new String[] {Items.MODIFIED_DATE, Items.NAME},
-								null, 
-								null, 
-								null);
-						itemsCursor.moveToFirst();
-						long itemsModifiedTimestamp = itemsCursor.getLong(itemsCursor.getColumnIndex(Items.MODIFIED_DATE));
-						modified = Math.max(modified, itemsModifiedTimestamp);
-						item.put(Items.MODIFIED_DATE, modified);
-						String name = itemsCursor.getString(itemsCursor.getColumnIndex(Items.NAME));
-						item.put(Items.NAME, name);
-						itemsCursor.close();
-						
-						itemsToSend.put(item);
-						
-					} catch (JSONException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-		
-					containsCursor.moveToNext();
-				}
-				containsCursor.close();
-				try {
-					syncJson.put(Connectivity.UPDATE_ITEM_COMMAND, itemsToSend);
-				} catch (JSONException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				ConnectivityManager cm =
+				        (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+				 
+				NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+				// check connection 
+				boolean isConnected = activeNetwork != null &&
+				                      activeNetwork.isConnectedOrConnecting();
+				// boolean isWiFi = activeNetwork.getType() == ConnectivityManager.TYPE_WIFI; // should not matter. 
+				// if user opens its application and his device is connected to Internet than most likely he need to download updates. 
+				// Anyway generated traffic not too high.
 				
-				Connectivity.Request(this, 
-						new SynchronizationResultProcessor(selectedListId), 
-						new BasicNameValuePair( Connectivity.SYNC_COMMAND, syncJson.toString())
-					);
-			} 
-			else // isConnected
-			{
-				// TODO : subscribe to detect when connection back
+				if(isConnected)
+				{
+					// Get Delayed data
+					String selection = "list_id = ?";
+									// "list_id = ? and " + ShoppingContract.Items.IS_SYNCED + "='0'";
+					
+					Cursor containsCursor = getBaseContext().getContentResolver().query(
+							Contains.CONTENT_URI, 
+							SYNC_PROJECTION,
+							selection, 
+							new String[] { listId }, 
+							null);
+					containsCursor.moveToFirst();
+					JSONObject syncJson = new JSONObject();
+					JSONArray itemsToSend = new JSONArray();
+					while (!containsCursor.isAfterLast()) {
+						int status = containsCursor.getInt(containsCursor.getColumnIndex(Contains.STATUS));
+						long itemId = containsCursor.getLong(containsCursor.getColumnIndex(Contains.ITEM_ID));
+						long modified = containsCursor.getLong(containsCursor.getColumnIndex(Contains.MODIFIED_DATE));
+						try {
+							JSONObject item = new JSONObject();
+							item.put(ShoppingContract.ContainsFull.STATUS, status);
+
+							Uri itemUri = Uri.withAppendedPath(
+									Items.CONTENT_URI, String.valueOf(itemId));
+							Cursor itemsCursor = getBaseContext().getContentResolver().query(
+									itemUri, 
+									new String[] {Items.MODIFIED_DATE, Items.NAME},
+									null, 
+									null, 
+									null);
+							itemsCursor.moveToFirst();
+							long itemsModifiedTimestamp = itemsCursor.getLong(itemsCursor.getColumnIndex(Items.MODIFIED_DATE));
+							modified = Math.max(modified, itemsModifiedTimestamp);
+							item.put(Items.MODIFIED_DATE, modified);
+							String name = itemsCursor.getString(itemsCursor.getColumnIndex(Items.NAME));
+							item.put(Items.NAME, name);
+							itemsCursor.close();
+								
+							itemsToSend.put(item);
+							
+						} catch (JSONException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+			
+						containsCursor.moveToNext();
+					}
+					containsCursor.close();
+					try {
+						syncJson.put(Connectivity.UPDATE_ITEM_COMMAND, itemsToSend);
+					} catch (JSONException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
+					Connectivity.Request(this, 
+							new SynchronizationResultProcessor(listId), 
+							new BasicNameValuePair( Connectivity.SYNC_COMMAND, syncJson.toString()),
+							new BasicNameValuePair(Connectivity.UUID, listShareUuid)
+						);
+				} 
+				else // isConnected
+				{
+					// TODO : subscribe to detect when connection back
+				}
 			}
 		}
+	}
+
+	private String getListShareId() {
+		long listId = mItemsView.getListId();
+		return listId == -1 ? null : getListShareId(String.valueOf(listId));
+	}
+	/**
+	 * @param listId
+	 * @return list share id
+	 */
+	private String getListShareId(String listId) {
+		Uri listUri = Uri.withAppendedPath(Lists.CONTENT_URI, listId);
+		Cursor listCursor = getBaseContext().getContentResolver().query(listUri, 
+				new String[] {Lists.SHARE_ID}, null, null, null);
+		listCursor.moveToFirst();
+		final String listShareId = listCursor.getString(listCursor.getColumnIndex(Lists.SHARE_ID));
+		listCursor.close();
+		return listShareId;
 	}
 
 	@Override
@@ -2546,8 +2566,9 @@ public class ShoppingActivity extends DistributionLibraryFragmentActivity
 			e.printStackTrace();
 		}
 		Connectivity.Request(this, 
-				new SynchronizationResultProcessor(getSelectedListId()),
-				new BasicNameValuePair(Connectivity.UPDATE_ITEM_COMMAND, item.toString()));
+				new SynchronizationResultProcessor(String.valueOf(getSelectedListId())),
+				new BasicNameValuePair(Connectivity.UPDATE_ITEM_COMMAND, item.toString()),
+				new BasicNameValuePair(Connectivity.UUID, getListShareId(listId)));
 
 		ShoppingUtils.deleteItem(this, itemId, listId);
 
@@ -2652,8 +2673,19 @@ public class ShoppingActivity extends DistributionLibraryFragmentActivity
 	 */
 	void shareListId() {
 		// Obtain URI of current list
+		String shareListId = getListShareId();
+		if(shareListId == null) {
+			shareListId = UUID.randomUUID().toString().replaceAll("-", "");
+			ContentValues values = new ContentValues();
+			values.put(Lists.SHARE_ID, shareListId);
+			int count = getContentResolver().update(
+					Uri.withAppendedPath(Lists.CONTENT_URI, shareListId), 
+					values, null, null);
+			Assert.assertEquals(1, count);
+		}
+			
 		IntentIntegrator intentIntegrator = new IntentIntegrator(this);
-		intentIntegrator.shareText(Connectivity.getId());
+		intentIntegrator.shareText(shareListId);
 		
 		// Call share settings as subactivity
 //		Intent intent = new Intent(OpenIntents.SET_SHARE_SETTINGS_ACTION,
@@ -3378,18 +3410,24 @@ public class ShoppingActivity extends DistributionLibraryFragmentActivity
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (debug)
 			Log.i(TAG, "ShoppingView: onActivityResult. ");
+		
 		IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
 		if (scanResult != null) {
-		    // handle scan result
-			Connectivity.setId(scanResult.getContents());
-			SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-			Editor editor = preferences.edit();
-			editor.putString("id", scanResult.getContents());
-			editor.commit();
-			sync();
-		}
-		
-		if (requestCode == SUBACTIVITY_LIST_SHARE_SETTINGS) {
+			final String contents = scanResult.getContents();
+			if (contents != null) {
+				long listId = mItemsView.getListId();
+				if(listId == -1) { // no list selected - create one
+					createNewList(contents);
+					listId = mItemsView.getListId();
+				} 
+				
+				Uri listUri = Uri.withAppendedPath(Lists.CONTENT_URI, String.valueOf(listId));
+				ContentValues contentValues = new ContentValues();
+				contentValues.put(Lists.SHARE_ID, contents);
+				int count = getContentResolver().update(listUri, contentValues, null, null);
+				Assert.assertEquals(1, count);
+			}
+		} else if (requestCode == SUBACTIVITY_LIST_SHARE_SETTINGS) {
 			if (debug)
 				Log.i(TAG, "SUBACTIVITY_LIST_SHARE_SETTINGS");
 

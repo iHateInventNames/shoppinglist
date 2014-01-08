@@ -65,8 +65,7 @@ public class ShoppingDatabase extends SQLiteOpenHelper {
 				+ "due INTEGER," // V4
 				+ "created INTEGER," // V1
 				+ "modified INTEGER," // V1
-				+ "accessed INTEGER," // V1
-				+ "synced INTEGER" // V14
+				+ "accessed INTEGER" // V1
 				+ ");");
 		db.execSQL("CREATE TABLE lists (" + "_id INTEGER PRIMARY KEY," // V1
 				+ "name VARCHAR," // V1
@@ -81,8 +80,9 @@ public class ShoppingDatabase extends SQLiteOpenHelper {
 				+ "skin_color INTEGER," // V2
 				+ "skin_color_strikethrough INTEGER," // V2
 				+ "store_filter INTEGER DEFAULT -1," // V12
-				+ "tags_filter VARCHAR" // V12
-                + "items_sort INTEGER" // V13
+				+ "tags_filter VARCHAR," // V12
+                + "items_sort INTEGER," // V13
+				+ Lists.SHARE_ID + " VARCHAR" // V14
 				+ ");");
 		db.execSQL("CREATE TABLE contains (" + "_id INTEGER PRIMARY KEY," // V1
 				+ "item_id INTEGER," // V1
@@ -293,6 +293,14 @@ public class ShoppingDatabase extends SQLiteOpenHelper {
 				try {
 					db.execSQL("ALTER TABLE lists ADD COLUMN "
 						+ Lists.ITEMS_SORT + " INTEGER;");
+				} catch (SQLException e) {
+					Log.e(ShoppingProvider.TAG, "Error executing SQL: ", e);
+				}
+				// NO break;
+			case 13:
+				try {
+					db.execSQL("ALTER TABLE lists ADD COLUMN "
+						+ Lists.SHARE_ID + " VARCHAR;");
 				} catch (SQLException e) {
 					Log.e(ShoppingProvider.TAG, "Error executing SQL: ", e);
 				}

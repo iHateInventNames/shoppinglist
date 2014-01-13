@@ -133,6 +133,7 @@ import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+import com.nullwire.trace.ExceptionHandler;
 
 /**
  * 
@@ -515,7 +516,9 @@ public class ShoppingActivity extends DistributionLibraryFragmentActivity
 	 */
 	@Override
 	public void onCreate(Bundle icicle) {
+		ExceptionHandler.register(this);
 		super.onCreate(icicle);
+
 		if (debug)
 			Log.d(TAG, "Shopping list onCreate()");
 
@@ -1512,6 +1515,8 @@ public class ShoppingActivity extends DistributionLibraryFragmentActivity
 
 							// Apply the theme after the list has been filled:
 							applyListTheme();
+							
+							sync();
 						}
 
 						public void onNothingSelected(AdapterView arg0) {
@@ -2147,6 +2152,7 @@ public class ShoppingActivity extends DistributionLibraryFragmentActivity
 		case MENU_CONNECT:
 			IntentIntegrator intentIntegrator = new IntentIntegrator(this);
 			intentIntegrator.initiateScan(IntentIntegrator.QR_CODE_TYPES);
+			// see onActivityResult for result processing
 			return true;
 			
 		case MENU_THEME:
@@ -2679,9 +2685,10 @@ public class ShoppingActivity extends DistributionLibraryFragmentActivity
 			ContentValues values = new ContentValues();
 			values.put(Lists.SHARE_ID, shareListId);
 			int count = getContentResolver().update(
-					Uri.withAppendedPath(Lists.CONTENT_URI, shareListId), 
+					Uri.withAppendedPath(Lists.CONTENT_URI, String.valueOf(getSelectedListId())), 
 					values, null, null);
 			Assert.assertEquals(1, count);
+			sync();
 		}
 			
 		IntentIntegrator intentIntegrator = new IntentIntegrator(this);
@@ -3420,9 +3427,20 @@ public class ShoppingActivity extends DistributionLibraryFragmentActivity
 					createNewList(contents);
 					listId = mItemsView.getListId();
 				} 
-				
-				Uri listUri = Uri.withAppendedPath(Lists.CONTENT_URI, String.valueOf(listId));
+
+				// make deleted items modified older
 				ContentValues contentValues = new ContentValues();
+				contentValues.put(Contains.MODIFIED_DATE, 0);
+				final String listIdStr = String.valueOf(listId);
+				getContentResolver().update(Contains.CONTENT_URI, 
+						contentValues,
+						ContainsFull.STATUS+'='+Status.REMOVED_FROM_LIST
+							+" and "+ContainsFull.LIST_ID+'='+listIdStr, 
+						null);
+				
+				
+				Uri listUri = Uri.withAppendedPath(Lists.CONTENT_URI, listIdStr);
+				contentValues = new ContentValues();
 				contentValues.put(Lists.SHARE_ID, contents);
 				int count = getContentResolver().update(listUri, contentValues, null, null);
 				Assert.assertEquals(1, count);

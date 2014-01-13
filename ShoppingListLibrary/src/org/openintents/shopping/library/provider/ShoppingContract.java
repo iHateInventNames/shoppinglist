@@ -563,7 +563,15 @@ public abstract class ShoppingContract {
 		 * Type: INTEGER (long)
 		 * </P>
 		 */
-		public static final String MODIFIED_DATE = "modified";
+		public static final String ITEM_MODIFIED_DATE = "item_modified";
+
+		/**
+		 * The timestamp for when the contains was last modified.
+		 * <P>
+		 * Type: INTEGER (long)
+		 * </P>
+		 */
+		public static final String CONTAINS_MODIFIED_DATE = "contain_modified";
 
 		/**
 		 * The timestamp for when the item was last accessed.

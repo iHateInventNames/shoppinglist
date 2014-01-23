@@ -1175,28 +1175,18 @@ public class ShoppingItemsView extends ListView {
 	public boolean cleanupList() {
 
 		boolean nothingdeleted = true;
-		if (false) {
-			// by deleteing items
-
-			nothingdeleted = getContext().getContentResolver().delete(
-					ShoppingContract.Contains.CONTENT_URI,
-					ShoppingContract.Contains.LIST_ID + " = " + mListId + " AND "
-							+ ShoppingContract.Contains.STATUS + " = "
-							+ ShoppingContract.Status.BOUGHT, null) == 0;
-
-		} else {
-			// by changing state
-			ContentValues values = new ContentValues();
-			values.put(Contains.STATUS, Status.REMOVED_FROM_LIST);
-			if (PreferenceActivity.getResetQuantity(getContext()))
-				values.put(Contains.QUANTITY, "");
-			nothingdeleted = getContext().getContentResolver().update(
-					Contains.CONTENT_URI,
-					values,
-					ShoppingContract.Contains.LIST_ID + " = " + mListId + " AND "
-							+ ShoppingContract.Contains.STATUS + " = "
-							+ ShoppingContract.Status.BOUGHT, null) == 0;
-		}
+		// by changing state
+		ContentValues values = new ContentValues();
+		values.put(Contains.STATUS, Status.REMOVED_FROM_LIST);
+		values.put(Contains.MODIFIED_DATE, System.currentTimeMillis());
+		if (PreferenceActivity.getResetQuantity(getContext()))
+			values.put(Contains.QUANTITY, "");
+		nothingdeleted = getContext().getContentResolver().update(
+				Contains.CONTENT_URI,
+				values,
+				ShoppingContract.Contains.LIST_ID + " = " + mListId + " AND "
+						+ ShoppingContract.Contains.STATUS + " = "
+						+ ShoppingContract.Status.BOUGHT, null) == 0;
 
 		requery();
 
@@ -1392,6 +1382,9 @@ public class ShoppingItemsView extends ListView {
 		total = priority_total = mNumChecked = totalchecked = 0;
 		}
 
+		if(mListId==-1)
+			return;
+		
 		Cursor total_cursor = getContext().getContentResolver().query(
 				Subtotals.CONTENT_URI.buildUpon().appendPath("" + mListId).build(),
 				Subtotals.PROJECTION, null, null, null);

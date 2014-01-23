@@ -681,28 +681,57 @@ public class ShoppingActivity extends DistributionLibraryFragmentActivity
 		Contains.MODIFIED_DATE,
 	 	};
 	 
+	final Handler handler = new Handler();
 	private class SynchronizationContentObserver extends ContentObserver {
+		
+		private boolean unregistering = false;
+		
 		public SynchronizationContentObserver() {
-			super(new Handler());
+			super(handler);
 		}
 
-		public void onChange(boolean selfChange) {
+		@Override
+		public void onChange(boolean selfChange, Uri uri) {
 			super.onChange(selfChange);
-			sync();
+			if(!isUnregistered()) {
+				final String path = uri.toString();
+				if(path.startsWith(Contains.CONTENT_URI.toString())
+						|| path.startsWith(Items.CONTENT_URI.toString())
+						) {
+					unregisterSyncObserver();
+					sync();
+				}
+			}
 		};
+		
+		public void unregister() {
+			unregistering = true;
+			getContentResolver().unregisterContentObserver(this);
+		}
+
+		boolean isUnregistered() {
+			return unregistering;
+		}
+
 	}
 	
-	private final ContentObserver usersSyncObserver = new SynchronizationContentObserver();
-	private final ContentObserver containsSyncObserver = new SynchronizationContentObserver();
+	private SynchronizationContentObserver usersSyncObserver = null;
+	private SynchronizationContentObserver containsSyncObserver = null;
 	
 	private synchronized void registerSyncObserver() {
-		getContentResolver().registerContentObserver(Items.CONTENT_URI, true, usersSyncObserver);
-		getContentResolver().registerContentObserver(Contains.CONTENT_URI, true, containsSyncObserver);
+		if(usersSyncObserver == null || usersSyncObserver.isUnregistered()) {
+			usersSyncObserver = new SynchronizationContentObserver();
+			getContentResolver().registerContentObserver(Items.CONTENT_URI, true, usersSyncObserver);
+		}
+		if(containsSyncObserver == null || containsSyncObserver.isUnregistered()) {
+			containsSyncObserver = new SynchronizationContentObserver();
+			getContentResolver().registerContentObserver(Contains.CONTENT_URI, true, containsSyncObserver);
+		}
 	}
 
 	private synchronized void unregisterSyncObserver() {
-		getContentResolver().unregisterContentObserver(usersSyncObserver);
-		getContentResolver().unregisterContentObserver(containsSyncObserver);
+		usersSyncObserver.unregister();
+		containsSyncObserver.unregister();
 	}
 	
 	static boolean synchronizingRightNow = false;
@@ -725,7 +754,7 @@ public class ShoppingActivity extends DistributionLibraryFragmentActivity
 
 						JSONArray list =result.getJSONArray(Connectivity.RESULT_RESPONSE_LIST);
 						int recievedCount = list.length();
-						unregisterSyncObserver();
+						//unregisterSyncObserver();
 						for (int i = 0; i < recievedCount; ++i) {
 							JSONObject item = list.getJSONObject(i);
 
@@ -753,7 +782,7 @@ public class ShoppingActivity extends DistributionLibraryFragmentActivity
 								ShoppingUtils.updateOrCreateItem(ShoppingActivity.this, listId, name, values);
 							}
 						}	
-						registerSyncObserver();
+//						registerSyncObserver();
 						
 						mItemsView.fillItems(ShoppingActivity.this, Long.parseLong(listId));
 						fillAutoCompleteTextViewAdapter();
@@ -771,8 +800,10 @@ public class ShoppingActivity extends DistributionLibraryFragmentActivity
 					Assert.assertFalse(true);
 					text = "??";
 				}
-				Toast.makeText(ShoppingActivity.this, text,
-						Toast.LENGTH_LONG).show();
+				if(!ShoppingActivity.this.isFinishing()) {
+					Toast.makeText(ShoppingActivity.this, text, Toast.LENGTH_LONG).show();
+					registerSyncObserver();
+				}
 			}
 			synchronizingRightNow = false;
 		}
